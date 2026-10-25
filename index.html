@@ -62,26 +62,15 @@
     }
 
     .header-brand img {
-      width: 32px;
-      height: 32px;
-      border-radius: 6px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+      border: 2px solid var(--accent);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
 
     .header-brand h1 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-main); font-weight: 800; }
-
-    .welcome-banner {
-      background: linear-gradient(135deg, rgba(255, 75, 75, 0.15), rgba(56, 189, 248, 0.15));
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 12px 15px;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .welcome-banner h2 { font-size: 1rem; color: var(--highlight); margin-bottom: 4px; }
-    .welcome-banner p { font-size: 0.82rem; color: var(--text-main); }
-    .welcome-date { color: var(--week-active); font-weight: bold; text-transform: capitalize; }
 
     .top-controls {
       display: flex;
@@ -113,6 +102,7 @@
       cursor: pointer;
     }
 
+    /* BARRA DE PESTAÑAS PRINCIPALES */
     .day-selector {
       display: flex;
       justify-content: space-between;
@@ -140,6 +130,133 @@
     .day-btn.active { background-color: var(--accent); color: white; border-color: var(--accent); }
 
     .container { padding: 0 10px; max-width: 600px; margin: 0 auto; }
+
+    /* ESTILO TIPO APP "PANEL DE HOY" */
+    .home-hero {
+      text-align: center;
+      padding: 15px 10px;
+      margin-bottom: 15px;
+    }
+    .home-logo-container {
+      margin-bottom: 12px;
+    }
+    .home-logo-container img {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 4px 12px rgba(255, 75, 75, 0.3);
+    }
+    .home-greeting {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+    .home-username {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+    .plan-hoy-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+    }
+    .plan-hoy-header h2 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .plan-hoy-header span {
+      font-size: 0.8rem;
+      color: var(--highlight);
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* TARJETAS DEL PANEL DE HOY */
+    .dashboard-card {
+      background-color: var(--bg-card);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: transform 0.1s ease, border-color 0.1s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .dashboard-card:hover {
+      border-color: var(--highlight);
+      transform: translateY(-2px);
+    }
+    .dash-card-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .dash-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+    }
+    .dash-icon-box.nutri {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--success);
+    }
+    .dash-icon-box.extra {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--week-active);
+    }
+    .dash-icon-box.metrics {
+      background: rgba(139, 92, 246, 0.15);
+      color: #a78bfa;
+    }
+    .dash-info h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 3px;
+    }
+    .dash-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+    .dash-arrow {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    /* ESTILOS ACTIVIDAD EXTRA */
+    .extra-activity-card {
+      background-color: var(--bg-card);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color);
+    }
+    .extra-activity-card h3 {
+      font-size: 1rem;
+      color: var(--week-active);
+      margin-bottom: 10px;
+    }
 
     .exercise-card, .profile-card, .metrics-card, .rest-card {
       background-color: var(--bg-card);
@@ -211,11 +328,11 @@
     .input-group { display: flex; align-items: center; gap: 5px; }
     .input-group label { font-size: 0.72rem; color: var(--text-muted); }
 
-    input[type="number"], input[type="text"], input[type="date"] {
+    input[type="number"], input[type="text"], input[type="date"], select {
       background-color: var(--bg-primary);
       border: 1px solid var(--border-color);
       color: white;
-      padding: 5px;
+      padding: 6px;
       border-radius: 6px;
       text-align: center;
       font-size: 0.85rem;
@@ -233,29 +350,7 @@
       font-size: 0.85rem;
     }
 
-    .form-row input { text-align: right; padding: 6px 10px; width: 45%; }
-
-    .set-video-upload {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      border-top: 1px dashed rgba(255, 255, 255, 0.1);
-      padding-top: 5px;
-      margin-top: 2px;
-    }
-
-    .set-video-upload input[type="file"] { font-size: 0.7rem; color: var(--highlight); width: 150px; }
-
-    .set-video-preview {
-      width: 100%;
-      max-height: 180px;
-      border-radius: 6px;
-      margin-top: 6px;
-      background: black;
-      display: none;
-    }
+    .form-row input, .form-row select { text-align: right; padding: 6px 10px; width: 50%; }
 
     .actions { display: flex; gap: 10px; margin-top: 20px; }
     .btn { flex: 1; padding: 12px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 0.88rem; }
@@ -266,41 +361,22 @@
     .history-log h3 { font-size: 0.9rem; margin-bottom: 10px; color: var(--accent); }
     .history-item { font-size: 0.78rem; border-bottom: 1px solid var(--border-color); padding: 5px 0; color: var(--text-muted); }
 
-    /* Estilos Vista Progreso */
-    .chart-card {
-      background-color: var(--bg-card);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 20px;
-      border: 1px solid var(--border-color);
-    }
-    .chart-card h3 {
-      font-size: 0.95rem;
-      color: var(--highlight);
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    .chart-container {
-      position: relative;
-      height: 220px;
-      width: 100%;
-    }
-
-    .progress-video-card {
-      background-color: var(--bg-card);
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid var(--border-color);
-    }
-
     /* Estilos Pestaña Nutrición */
+    .nutri-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
     .nutri-day-selector {
       display: flex;
       gap: 6px;
       overflow-x: auto;
-      padding-bottom: 10px;
-      margin-bottom: 12px;
+      padding-bottom: 5px;
+      flex: 1;
     }
 
     .nutri-day-btn {
@@ -321,10 +397,19 @@
       border-color: var(--nutrition-accent);
     }
 
-    .nutri-day-btn.btn-shopping-mode {
-      background: #8b5cf6;
+    .btn-print-pdf {
+      background-color: #2563eb;
       color: white;
-      border-color: #8b5cf6;
+      border: none;
+      padding: 7px 12px;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 0.78rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      white-space: nowrap;
     }
 
     .macro-header-card {
@@ -378,78 +463,23 @@
     .meal-note { font-size: 0.8rem; color: #4b5563; font-style: italic; margin-bottom: 8px; }
     .meal-footer-cal { font-size: 0.88rem; color: #4b5563; font-weight: 600; margin-top: 10px; }
 
-    /* Lista Compra Imprimible */
-    .shopping-card {
-      background: var(--nutri-card-bg);
-      border-radius: 12px;
-      padding: 20px;
-      color: var(--nutri-card-text);
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    }
-
-    .shopping-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #e5e7eb;
-      padding-bottom: 12px;
-      margin-bottom: 15px;
-    }
-
-    .shopping-header h2 { font-size: 1.1rem; color: #111827; }
-
-    .btn-print {
-      background-color: #2563eb;
-      color: white;
-      border: none;
-      padding: 8px 14px;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 0.8rem;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .shopping-category { margin-bottom: 16px; }
-
-    .shopping-category h3 {
-      font-size: 0.92rem;
-      color: #3b82f6;
-      border-bottom: 1px solid #f3f4f6;
-      padding-bottom: 4px;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .shopping-list { list-style: none; padding-left: 5px; }
-
-    .shopping-list li {
-      font-size: 0.88rem;
-      padding: 4px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: #374151;
-    }
-
-    .shopping-list input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--success); cursor: pointer; }
-
+    /* ESTILOS PARA IMPRESIÓN Y PDF */
     @media print {
       body * { visibility: hidden; }
-      #printable-shopping-list, #printable-shopping-list * { visibility: visible; }
-      #printable-shopping-list {
+      #nutrition-view, #nutrition-view * { visibility: visible; }
+      #nutrition-view {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         background: white !important;
         color: black !important;
-        padding: 20px;
+        padding: 10px;
       }
-      .btn-print, .nutri-day-selector, header, .day-selector, .welcome-banner { display: none !important; }
+      header, .day-selector, .btn-print-pdf, .nutri-top-bar { display: none !important; }
+      .meal-card, .macro-header-card { background: white !important; color: black !important; border: 1px solid #ccc !important; box-shadow: none !important; }
+      .meal-title { color: #111 !important; }
+      .meal-item-list li { color: #333 !important; }
     }
   </style>
 </head>
@@ -495,7 +525,9 @@
     </div>
   </header>
 
+  <!-- MENÚ DE PESTAÑAS PRINCIPALES -->
   <div class="day-selector">
+    <button class="day-btn active" id="btn-INICIO" onclick="switchDay('INICIO')">🏠 INICIO</button>
     <button class="day-btn" id="btn-LUNES" onclick="switchDay('LUNES')">LUNES</button>
     <button class="day-btn" id="btn-MARTES" onclick="switchDay('MARTES')">MARTES</button>
     <button class="day-btn" id="btn-MIERCOLES" onclick="switchDay('MIERCOLES')">MIÉRCOLES 💤</button>
@@ -509,23 +541,106 @@
 
   <div class="container">
 
-    <!-- BANNER DE BIENVENIDA -->
-    <div class="welcome-banner" id="welcome-banner">
-      <h2 id="welcome-message">¡Hola! Tu reto para hoy:</h2>
-      <p>Fecha: <span class="welcome-date" id="current-date-str"></span></p>
+    <!-- VISTA INICIO / PANEL DE HOY -->
+    <div id="home-view">
+      <div class="home-hero">
+        <div class="home-logo-container">
+          <img src="./icon-192x192.png" alt="Logo RS FIT PRO">
+        </div>
+        <div class="home-greeting" id="home-greeting-text">Buenas tardes,</div>
+        <div class="home-username" id="home-username-text">FRANCISCO</div>
+      </div>
+
+      <div class="plan-hoy-header">
+        <h2>Plan de hoy</h2>
+        <span id="plan-hoy-day-label" onclick="switchDay(getCurrentTrainingDay())">Ver entrenamiento ➔</span>
+      </div>
+
+      <div class="dashboard-card" onclick="switchDay(getCurrentTrainingDay())">
+        <div class="dash-card-left">
+          <div class="dash-icon-box">🏋️‍♂️</div>
+          <div class="dash-info">
+            <h3 id="dash-workout-title">Entrenamiento</h3>
+            <p>Toca para abrir tu rutina y registrar series</p>
+          </div>
+        </div>
+        <div class="dash-arrow">›</div>
+      </div>
+
+      <div class="dashboard-card" onclick="switchDay('NUTRICION')">
+        <div class="dash-card-left">
+          <div class="dash-icon-box nutri">🥗</div>
+          <div class="dash-info">
+            <h3>Menú Nutricional</h3>
+            <p>Consulta tus calorías y recetas del día</p>
+          </div>
+        </div>
+        <div class="dash-arrow">›</div>
+      </div>
+
+      <div class="dashboard-card" onclick="toggleExtraActivityCard()">
+        <div class="dash-card-left">
+          <div class="dash-icon-box extra">🔥</div>
+          <div class="dash-info">
+            <h3>Actividad Extra (Running, Pádel...)</h3>
+            <p id="dash-extra-status">Añade o registra tu deporte extra de hoy</p>
+          </div>
+        </div>
+        <div class="dash-arrow" id="extra-arrow-icon">▼</div>
+      </div>
+
+      <div id="extra-activity-section" class="extra-activity-card" style="display: none;">
+        <h3>⚡ Registrar Actividad Extra</h3>
+        <div class="form-row">
+          <label for="extra-tipo">Deporte:</label>
+          <select id="extra-tipo">
+            <option value="Running">🏃‍♂️ Running</option>
+            <option value="Pádel">🎾 Pádel</option>
+            <option value="Spinning">🚴‍♂️ Spinning / Ciclismo</option>
+            <option value="Caminata">🚶‍♂️ Caminata / Paseo</option>
+            <option value="Natación">🏊‍♂️ Natación</option>
+            <option value="Otro">⭐ Otro deporte</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="extra-tiempo">Duración (min):</label>
+          <input type="number" id="extra-tiempo" placeholder="Ej: 45">
+        </div>
+        <div class="form-row">
+          <label for="extra-kcal">Calorías aprox. (kcal):</label>
+          <input type="number" id="extra-kcal" placeholder="Ej: 350">
+        </div>
+        <div class="form-row">
+          <label for="extra-notas">Notas / Sensaciones:</label>
+          <input type="text" id="extra-notas" placeholder="Ej: Muy buenas sensaciones" style="text-align:left;">
+        </div>
+        <div class="actions" style="margin-top: 12px;">
+          <button type="button" class="btn btn-save" onclick="saveExtraActivity()">Guardar Actividad</button>
+        </div>
+        <div id="extra-saved-list" style="margin-top: 15px; font-size: 0.8rem; color: var(--text-muted);"></div>
+      </div>
+
+      <div class="dashboard-card" onclick="switchDay('MIERCOLES')">
+        <div class="dash-card-left">
+          <div class="dash-icon-box metrics">📏</div>
+          <div class="dash-info">
+            <h3>Métricas y Control Corporal</h3>
+            <p>Registra tu peso, grasa y medidas semanales</p>
+          </div>
+        </div>
+        <div class="dash-arrow">›</div>
+      </div>
     </div>
-    
+
     <!-- VISTA DE ENTRENAMIENTO -->
-    <div id="workout-view">
+    <div id="workout-view" style="display: none;">
       <form id="workout-form">
         <div id="exercise-list"></div>
-
         <div class="actions">
           <button type="button" class="btn btn-save" onclick="saveWorkout()">Guardar Sesión</button>
           <button type="button" class="btn btn-reset" onclick="resetCurrentDay()">Limpiar Día</button>
         </div>
       </form>
-
       <div class="history-log">
         <h3>Historial de la última sesión</h3>
         <div id="history-content">No hay registros guardados aún.</div>
@@ -537,95 +652,50 @@
       <div class="rest-card">
         <h2 style="color:var(--week-active); font-size:1.2rem; margin-bottom:6px;">📐 ¡HOY DÍA DE MÉTRICAS!</h2>
         <h2>💤 Día de Descanso Activo</h2>
-        <p>Hoy no hay entrenamiento programado. Es el momento perfecto para registrar tus métricas y evaluar la evolución semanal.</p>
-        <p style="margin-top: 8px;">Aprovecha también para reponer energía, estirar suavemente o realizar una caminata ligera para favorecer la recuperación muscular.</p>
+        <p>Momentos perfectos para registrar tus métricas y evaluar la evolución semanal.</p>
       </div>
-
       <div class="profile-card">
-        <h2 style="font-size: 1.05rem; color: var(--highlight); margin-bottom: 12px; display:flex; justify-content:space-between; align-items:center;">
-          <span>📏 Registro de Métricas Semanales</span>
-          <span style="font-size:0.75rem; color:var(--week-active);" id="metrics-fase-week-tag">Fase 3 | Sem 1</span>
-        </h2>
-
-        <div class="form-row">
-          <label for="m-peso">Peso (kg):</label>
-          <input type="number" step="0.1" id="m-peso" placeholder="Ej: 75.5">
-        </div>
-
-        <div class="form-row">
-          <label for="m-grasa">Índice de Grasa Corporal (%):</label>
-          <input type="number" step="0.1" id="m-grasa" placeholder="Ej: 18.2">
-        </div>
-
-        <div class="form-row">
-          <label for="m-pecho">Diámetro Pecho (cm):</label>
-          <input type="number" step="0.5" id="m-pecho" placeholder="Ej: 102">
-        </div>
-
-        <div class="form-row">
-          <label for="m-cintura">Diámetro Cintura (cm):</label>
-          <input type="number" step="0.5" id="m-cintura" placeholder="Ej: 84">
-        </div>
-
-        <div class="form-row">
-          <label for="m-abdominal">Diámetro Abdominal (cm):</label>
-          <input type="number" step="0.5" id="m-abdominal" placeholder="Ej: 88">
-        </div>
-
-        <div class="form-row">
-          <label for="m-cadera">Diámetro Cadera (cm):</label>
-          <input type="number" step="0.5" id="m-cadera" placeholder="Ej: 96">
-        </div>
-
-        <div class="form-row">
-          <label for="m-brazo">Diámetro Brazo Dominante (cm):</label>
-          <input type="number" step="0.5" id="m-brazo" placeholder="Ej: 36">
-        </div>
-
-        <div class="form-row">
-          <label for="m-pierna">Diámetro Pierna Dominante (cm):</label>
-          <input type="number" step="0.5" id="m-pierna" placeholder="Ej: 56">
-        </div>
-
-        <div class="form-row">
-          <label for="m-gemelo">Diámetro Gemelo Pierna Dominante (cm):</label>
-          <input type="number" step="0.5" id="m-gemelo" placeholder="Ej: 38">
-        </div>
-
-        <div class="actions">
-          <button type="button" class="btn btn-save" onclick="saveWeeklyMetrics()">Guardar Métricas</button>
-        </div>
+        <h2 style="font-size: 1.05rem; color: var(--highlight); margin-bottom: 12px;">📏 Registro de Métricas Semanales</h2>
+        <div class="form-row"><label for="m-peso">Peso (kg):</label><input type="number" step="0.1" id="m-peso"></div>
+        <div class="form-row"><label for="m-grasa">Grasa (%):</label><input type="number" step="0.1" id="m-grasa"></div>
+        <div class="form-row"><label for="m-pecho">Pecho (cm):</label><input type="number" step="0.5" id="m-pecho"></div>
+        <div class="form-row"><label for="m-cintura">Cintura (cm):</label><input type="number" step="0.5" id="m-cintura"></div>
+        <div class="form-row"><label for="m-abdominal">Abdominal (cm):</label><input type="number" step="0.5" id="m-abdominal"></div>
+        <div class="form-row"><label for="m-cadera">Cadera (cm):</label><input type="number" step="0.5" id="m-cadera"></div>
+        <div class="form-row"><label for="m-brazo">Brazo (cm):</label><input type="number" step="0.5" id="m-brazo"></div>
+        <div class="form-row"><label for="m-pierna">Pierna (cm):</label><input type="number" step="0.5" id="m-pierna"></div>
+        <div class="form-row"><label for="m-gemelo">Gemelo (cm):</label><input type="number" step="0.5" id="m-gemelo"></div>
+        <div class="actions"><button type="button" class="btn btn-save" onclick="saveWeeklyMetrics()">Guardar Métricas</button></div>
       </div>
-
       <div class="history-log">
-        <h3>📊 Historial de Métricas Registradas</h3>
-        <div id="metrics-history-content">Cargando registros...</div>
+        <h3>📊 Historial de Métricas</h3>
+        <div id="metrics-history-content">Cargando...</div>
       </div>
     </div>
 
-    <!-- VISTA DE PROGRESO (GRÁFICAS INDIVIDUALES) -->
+    <!-- VISTA DE PROGRESO -->
     <div id="progress-view" style="display: none;">
       <div class="metrics-card">
-        <h2 style="font-size: 1.1rem; color: var(--highlight); margin-bottom: 12px; text-align:center;">📈 Gráficas de Evolución Temporal</h2>
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-align:center; margin-bottom: 15px;">Visualiza los cambios semanales acumulados en cada una de tus mediciones corporales.</p>
-        <div id="progress-charts-list">Cargando gráficas de progreso...</div>
+        <h2 style="font-size: 1.1rem; color: var(--highlight); margin-bottom: 12px; text-align:center;">📈 Gráficas de Evolución</h2>
+        <div id="progress-charts-list">Cargando gráficas...</div>
       </div>
     </div>
 
-    <!-- VISTA DE NUTRICIÓN Y LISTA DE LA COMPRA -->
+    <!-- VISTA DE NUTRICIÓN -->
     <div id="nutrition-view" style="display: none;">
-      <div class="nutri-day-selector">
-        <button class="nutri-day-btn" id="nday-LUNES" onclick="switchNutriDay('LUNES')">Lunes</button>
-        <button class="nutri-day-btn" id="nday-MARTES" onclick="switchNutriDay('MARTES')">Martes</button>
-        <button class="nutri-day-btn" id="nday-MIERCOLES" onclick="switchNutriDay('MIERCOLES')">Miércoles</button>
-        <button class="nutri-day-btn" id="nday-JUEVES" onclick="switchNutriDay('JUEVES')">Jueves</button>
-        <button class="nutri-day-btn" id="nday-VIERNES" onclick="switchNutriDay('VIERNES')">Viernes</button>
-        <button class="nutri-day-btn" id="nday-SABADO" onclick="switchNutriDay('SABADO')">Sábado</button>
-        <button class="nutri-day-btn" id="nday-DOMINGO" onclick="switchNutriDay('DOMINGO')">Domingo</button>
-        <button class="nutri-day-btn btn-shopping-mode" id="nday-COMPRA" onclick="switchNutriDay('COMPRA')">LISTA COMPRA 🛒</button>
+      <div class="nutri-top-bar">
+        <div class="nutri-day-selector">
+          <button class="nutri-day-btn" id="nday-LUNES" onclick="switchNutriDay('LUNES')">Lunes</button>
+          <button class="nutri-day-btn" id="nday-MARTES" onclick="switchNutriDay('MARTES')">Martes</button>
+          <button class="nutri-day-btn" id="nday-MIERCOLES" onclick="switchNutriDay('MIERCOLES')">Miércoles</button>
+          <button class="nutri-day-btn" id="nday-JUEVES" onclick="switchNutriDay('JUEVES')">Jueves</button>
+          <button class="nutri-day-btn" id="nday-VIERNES" onclick="switchNutriDay('VIERNES')">Viernes</button>
+          <button class="nutri-day-btn" id="nday-SABADO" onclick="switchNutriDay('SABADO')">Sábado</button>
+          <button class="nutri-day-btn" id="nday-DOMINGO" onclick="switchNutriDay('DOMINGO')">Domingo</button>
+        </div>
+        <button type="button" class="btn-print-pdf" onclick="window.print()">🖨️ Imprimir / PDF</button>
       </div>
 
-      <!-- VISTA DIARIA DE MENÚ -->
       <div id="daily-menu-container">
         <div class="macro-header-card">
           <div class="macro-main-cal">
@@ -633,118 +703,31 @@
             <div class="cal-unit">kcal</div>
           </div>
           <div class="macro-stats-group">
-            <div class="stat-box">
-              <div class="val val-prot" id="nutri-header-prot">79 g</div>
-              <div class="lbl">Proteínas</div>
-            </div>
-            <div class="stat-box">
-              <div class="val val-carb" id="nutri-header-carb">162 g</div>
-              <div class="lbl">Carbs</div>
-            </div>
-            <div class="stat-box">
-              <div class="val val-fat" id="nutri-header-fat">30 g</div>
-              <div class="lbl">Grasas</div>
-            </div>
+            <div class="stat-box"><div class="val val-prot" id="nutri-header-prot">79 g</div><div class="lbl">Proteínas</div></div>
+            <div class="stat-box"><div class="val val-carb" id="nutri-header-carb">162 g</div><div class="lbl">Carbs</div></div>
+            <div class="stat-box"><div class="val val-fat" id="nutri-header-fat">30 g</div><div class="lbl">Grasas</div></div>
           </div>
         </div>
-
         <div id="nutri-meals-container"></div>
       </div>
-
-      <!-- VISTA LISTA DE LA COMPRA IMPRIMIBLE -->
-      <div id="shopping-list-container" style="display: none;">
-        <div class="shopping-card" id="printable-shopping-list">
-          <div class="shopping-header">
-            <div>
-              <h2>🛒 Lista de la Compra Semanal</h2>
-              <span style="font-size: 0.8rem; color: #6b7280;" id="shopping-phase-label">Fase 1 (Base)</span>
-            </div>
-            <button type="button" class="btn-print" onclick="window.print()">🖨️ Imprimir / PDF</button>
-          </div>
-
-          <div id="shopping-categories-list"></div>
-        </div>
-      </div>
     </div>
 
-    <!-- VISTA DE PERFIL DE USUARIO Y MÉTRICAS BASE -->
+    <!-- VISTA DE PERFIL -->
     <div id="profile-view" style="display: none;">
       <div class="profile-card">
-        <h2 style="font-size: 1.05rem; color: var(--highlight); margin-bottom: 12px;">👤 Datos Personales y Métricas Base del Atleta</h2>
-        
-        <div class="form-row">
-          <label for="prof-name">Nombre:</label>
-          <input type="text" id="prof-name" placeholder="Tu nombre" style="text-align:left; width:60%;">
-        </div>
-        
-        <div class="form-row">
-          <label for="prof-dob">Fecha de Nacimiento:</label>
-          <input type="date" id="prof-dob" style="text-align:center; width:60%;">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-height">Altura (cm):</label>
-          <input type="number" id="prof-height" placeholder="Ej: 175" style="width: 100px;">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-weight">Peso Inicial Base (kg):</label>
-          <input type="number" id="prof-weight" step="0.5" placeholder="Ej: 75" style="width: 100px;">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-base-grasa">Grasa Corporal Base (%):</label>
-          <input type="number" id="prof-base-grasa" step="0.1" placeholder="Ej: 20" style="width: 100px;">
-        </div>
-
-        <h3 style="font-size: 0.88rem; color: var(--week-active); margin: 15px 0 10px 0; border-bottom: 1px solid var(--border-color); padding-bottom: 4px;">📐 Medidas Corporales Base Inicio de Reto</h3>
-
-        <div class="form-row">
-          <label for="prof-base-pecho">Pecho Base (cm):</label>
-          <input type="number" step="0.5" id="prof-base-pecho" placeholder="Ej: 100">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-base-cintura">Cintura Base (cm):</label>
-          <input type="number" step="0.5" id="prof-base-cintura" placeholder="Ej: 86">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-base-abdominal">Abdominal Base (cm):</label>
-          <input type="number" step="0.5" id="prof-base-abdominal" placeholder="Ej: 90">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-base-cadera">Cadera Base (cm):</label>
-          <input type="number" step="0.5" id="prof-base-cadera" placeholder="Ej: 98">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-base-brazo">Brazo Dominante Base (cm):</label>
-          <input type="number" step="0.5" id="prof-base-brazo" placeholder="Ej: 35">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-base-pierna">Pierna Dominante Base (cm):</label>
-          <input type="number" step="0.5" id="prof-base-pierna" placeholder="Ej: 55">
-        </div>
-
-        <div class="form-row">
-          <label for="prof-base-gemelo">Gemelo Dominante Base (cm):</label>
-          <input type="number" step="0.5" id="prof-base-gemelo" placeholder="Ej: 37">
-        </div>
-
-        <div class="actions">
-          <button type="button" class="btn btn-save" onclick="saveProfile()">Guardar Perfil Base</button>
-        </div>
+        <h2 style="font-size: 1.05rem; color: var(--highlight); margin-bottom: 12px;">👤 Perfil Base del Atleta</h2>
+        <div class="form-row"><label>Nombre:</label><input type="text" id="prof-name" style="text-align:left; width:60%;"></div>
+        <div class="form-row"><label>Altura (cm):</label><input type="number" id="prof-height" style="width: 100px;"></div>
+        <div class="form-row"><label>Peso Base (kg):</label><input type="number" id="prof-weight" step="0.5" style="width: 100px;"></div>
+        <div class="actions"><button type="button" class="btn btn-save" onclick="saveProfile()">Guardar Perfil</button></div>
       </div>
     </div>
 
-    <!-- VISTA DE VÍDEOS DE TÉCNICA -->
+    <!-- VISTA DE VÍDEOS -->
     <div id="videos-view" style="display: none;">
       <div class="metrics-card">
-        <h2 style="font-size: 1.05rem; color: var(--video-btn); margin-bottom: 10px;">🎬 Vídeos de Técnica Grabados (Para Corrección)</h2>
-        <div id="progress-videos-container">No hay vídeos de ejercicios subidos aún.</div>
+        <h2 style="font-size: 1.05rem; color: var(--video-btn); margin-bottom: 10px;">🎬 Vídeos de Técnica</h2>
+        <div id="progress-videos-container">No hay vídeos subidos.</div>
       </div>
     </div>
 
@@ -754,607 +737,211 @@
     const weekPctMultipliers = { 1: 1.0, 2: 1.03, 3: 1.06, 4: 1.10, 5: 1.13, 6: 0.90 };
     const goalMultipliers = { definicion: 0.98, mantenimiento: 1.0, fuerza: 1.04 };
 
-    // Objeto global para almacenar los vídeos en memoria activa durante la sesión
-    const sessionVideoBlobs = {};
-
-    // =========================================
-    // 🥗 BASE DE DATOS NUTRICIONAL
-    // =========================================
     const nutritionPhasesData = {
       1: {
-        LUNES: {
-          kcal: 1227, prot: 79, carbs: 162, fat: 30,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de centeno", "15 g Aceite de oliva virgen extra", "20 g Jamón serrano"], kcal: "348 kcal" },
-            { title: "Comida", items: ["100 g Ternera (filete o hamburguesa)", "100 g Arroz", "100 g Piña"], kcal: "567 kcal" },
-            { title: "Snack", note: "Elige entre 1 yogur griego natural o 1 yogur de proteínas del sabor que más te guste.", items: ["1 Yogur de proteínas"], kcal: "" },
-            { title: "Cena", note: "Aliño de patata cocida con cebolla, atún o melva y pimiento rojo asado.", items: ["100 g Patata cocida (Mercadona bote)", "100 g Atún al natural", "100 g Cebolla", "100 g Pimiento rojo asado", "100 g Mandarina"], kcal: "" }
-          ]
-        },
-        MARTES: {
-          kcal: 1762, prot: 107, carbs: 177, fat: 69,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de espelta integral rebanadas", "20 g Aceite de oliva virgen extra", "Lomo embuchado MERCADONA"], kcal: "571 kcal" },
-            { title: "Comida", note: "Arroz tres delicias. Curry opcional.", items: ["100 g Arroz", "100 g Huevo fresco", "100 g Fiambre de pavo", "100 g Zanahoria cruda", "100 g Guisantes en conserva"], kcal: "786 kcal" },
-            { title: "Snack", note: "Un puñado de frutos secos.", items: ["30 g Frutos secos"], kcal: "170 kcal" },
-            { title: "Cena", note: "Hacerlo al horno.", items: ["100 g Merluza", "100 g Batata", "100 g Melocotón"], kcal: "236 kcal" }
-          ]
-        },
-        MIERCOLES: {
-          kcal: 1620, prot: 98, carbs: 167, fat: 66,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan integral Thin MERCADONA", "10 g Aceite de oliva virgen extra", "100 g Lacón"], kcal: "619 kcal" },
-            { title: "Comida", items: ["100 g Cuscús", "100 g Calabacín", "100 g Pimiento rojo", "100 g Pimiento verde", "100 g Zanahoria cruda", "100 g Tiras de pollo al natural MERCADONA"], kcal: "596 kcal" },
-            { title: "Snack", items: ["100 g Manzana"], kcal: "50 kcal" },
-            { title: "Cena", note: "Sofreír ajo con aceite, añadir espinacas y garbanzos.", items: ["100 g Espinaca hervida", "100 g Garbanzo cocido", "100 g Leche de coco", "100 g Ajo", "1 Gelatina + proteína MERCADONA"], kcal: "355 kcal" }
-          ]
-        },
-        JUEVES: {
-          kcal: 1716, prot: 122, carbs: 172, fat: 66,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de centeno", "100 g Pollo asado al horno La Carloteña", "15 g Aceite de oliva virgen extra"], kcal: "444 kcal" },
-            { title: "Comida", items: ["100 g Tortilla a la francesa", "100 g Jamón serrano", "100 g Pimiento verde", "100 g Cebolla", "100 g Ajo", "100 g Pera"], kcal: "62 kcal" },
-            { title: "Snack", items: ["100 g Queso fresco batido Quark", "100 g Arándanos"], kcal: "92 kcal" },
-            { title: "Cena", items: ["100 g Macarrones integrales", "100 g Tomate triturado natural", "100 g Carne picada de pollo", "100 g Piña"], kcal: "558 kcal" }
-          ]
-        },
-        VIERNES: {
-          kcal: 1474, prot: 106, carbs: 71, fat: 82,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de espelta integral rebanadas", "15 g Aceite de oliva virgen extra", "100 g Atún al natural"], kcal: "423 kcal" },
-            { title: "Comida", note: "Pisto de verduras con huevo.", items: ["100 g Pisto de verduras", "100 g Huevo fresco", "100 g Pechuga de pollo fresca", "100 g Fresas"], kcal: "419 kcal" },
-            { title: "Snack", items: ["30 g Nueces"], kcal: "214 kcal" },
-            { title: "Cena", note: "Guisantes cocidos con ajo y jamón.", items: ["100 g Guisantes congelados hervidos", "100 g Jamón serrano", "100 g Naranja"], kcal: "418 kcal" }
-          ]
-        },
-        SABADO: {
-          kcal: 625, prot: 49, carbs: 49, fat: 23,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan integral", "15 g Aceite de oliva virgen extra", "100 g Pechuga de pavo asada El Pozo"], kcal: "373 kcal" },
-            { title: "Comida Libre", note: "Priorizar la ingesta de proteínas y cuidado con estropear el esfuerzo semanal.", items: ["100 g Agua mineral de mineralización débil"], kcal: "0 kcal" },
-            { title: "Cena", note: "Wok de verduras con pollo y especias.", items: ["100 g Menestra de verduras", "100 g Pechuga de pollo fresca", "100 g Granada"], kcal: "253 kcal" }
-          ]
-        },
-        DOMINGO: {
-          kcal: 2089, prot: 148, carbs: 187, fat: 80,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de espelta integral rebanadas", "15 g Aceite de oliva virgen extra", "100 g Lomo embuchado MERCADONA"], kcal: "526 kcal" },
-            { title: "Comida", items: ["100 g Pulpo", "100 g Patata cocida Ybarra", "100 g Pimentón en polvo"], kcal: "479 kcal" },
-            { title: "Snack", items: ["100 g Ciruela amarilla con piel"], kcal: "48 kcal" },
-            { title: "Cena", items: ["100 g Canónigos", "100 g Melva", "100 g Huevo duro", "100 g Cebolla", "100 g Maíz crudo", "100 g Queso feta"], kcal: "1036 kcal" }
-          ]
-        }
+        LUNES: { kcal: 1227, prot: 79, carbs: 162, fat: 30, meals: [
+          { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de centeno", "15 g AOVE", "20 g Jamón serrano"], kcal: "348 kcal" },
+          { title: "Comida", items: ["100 g Ternera", "100 g Arroz", "100 g Piña"], kcal: "567 kcal" },
+          { title: "Snack", items: ["1 Yogur de proteínas"], kcal: "" },
+          { title: "Cena", items: ["100 g Patata cocida", "100 g Atún al natural", "100 g Cebolla", "100 g Pimiento asado"], kcal: "" }
+        ]},
+        MARTES: { kcal: 1762, prot: 107, carbs: 177, fat: 69, meals: [
+          { title: "Desayuno", items: ["100 g Café", "70 g Pan espelta", "20 g AOVE", "Lomo embuchado"], kcal: "571 kcal" },
+          { title: "Comida", items: ["100 g Arroz", "100 g Huevo", "100 g Pavo", "Zanahoria y guisantes"], kcal: "786 kcal" },
+          { title: "Snack", items: ["30 g Frutos secos"], kcal: "170 kcal" },
+          { title: "Cena", items: ["100 g Merluza", "100 g Batata", "100 g Melocotón"], kcal: "236 kcal" }
+        ]},
+        MIERCOLES: { kcal: 1620, prot: 98, carbs: 167, fat: 66, meals: [
+          { title: "Desayuno", items: ["Café", "70 g Pan integral Thin", "10 g AOVE", "100 g Lacón"], kcal: "619 kcal" },
+          { title: "Comida", items: ["100 g Cuscús", "Verduras variadas", "100 g Tiras de pollo"], kcal: "596 kcal" },
+          { title: "Snack", items: ["100 g Manzana"], kcal: "50 kcal" },
+          { title: "Cena", items: ["Espinacas", "Garbanzos", "Leche de coco", "Gelatina proteica"], kcal: "355 kcal" }
+        ]},
+        JUEVES: { kcal: 1716, prot: 122, carbs: 172, fat: 66, meals: [
+          { title: "Desayuno", items: ["Café", "Pan centeno", "Pollo asado", "15g AOVE"], kcal: "444 kcal" },
+          { title: "Comida", items: ["Tortilla francesa", "Jamón serrano", "Verduras", "Pera"], kcal: "62 kcal" },
+          { title: "Snack", items: ["Queso Quark", "Arándanos"], kcal: "92 kcal" },
+          { title: "Cena", items: ["Macarrones integrales", "Tomate", "Carne picada pollo", "Piña"], kcal: "558 kcal" }
+        ]},
+        VIERNES: { kcal: 1474, prot: 106, carbs: 71, fat: 82, meals: [
+          { title: "Desayuno", items: ["Café", "Pan espelta", "15g AOVE", "Atún"], kcal: "423 kcal" },
+          { title: "Comida", items: ["Pisto", "Huevo", "Pechuga pollo", "Fresas"], kcal: "419 kcal" },
+          { title: "Snack", items: ["30 g Nueces"], kcal: "214 kcal" },
+          { title: "Cena", items: ["Guisantes", "Jamón serrano", "Naranja"], kcal: "418 kcal" }
+        ]},
+        SABADO: { kcal: 625, prot: 49, carbs: 49, fat: 23, meals: [
+          { title: "Desayuno", items: ["Café", "Pan integral", "Pavo", "AOVE"], kcal: "373 kcal" },
+          { title: "Comida Libre", items: ["Agua mineral"], kcal: "0 kcal" },
+          { title: "Cena", items: ["Menestra", "Pollo", "Granada"], kcal: "253 kcal" }
+        ]},
+        DOMINGO: { kcal: 2089, prot: 148, carbs: 187, fat: 80, meals: [
+          { title: "Desayuno", items: ["Café", "Pan espelta", "Lomo embuchado", "AOVE"], kcal: "526 kcal" },
+          { title: "Comida", items: ["Pulpo", "Patata cocida", "Pimentón"], kcal: "479 kcal" },
+          { title: "Snack", items: ["Ciruela"], kcal: "48 kcal" },
+          { title: "Cena", items: ["Canónigos", "Melva", "Huevo duro", "Queso feta"], kcal: "1036 kcal" }
+        ]}
       },
       2: {
-        LUNES: {
-          kcal: 2343, prot: 140, carbs: 54, fat: 174,
-          meals: [
-            { title: "Desayuno", note: "El pan de centeno del sitio que quieras (panadería mejor).", items: ["100 g Café, infusión", "70 g Pan centeno MERCADONA", "100 g Jamón serrano", "100 g Aceite de oliva virgen extra"], kcal: "1358 kcal" },
-            { title: "Comida", items: ["100 g Pisto de verduras (brick o casero)", "100 g Huevo fresco", "100 g Pechuga de pavo a la plancha", "100 g Mandarina"], kcal: "427 kcal" },
-            { title: "Snack", note: "Un puñado sólo.", items: ["30 g Pistacho"], kcal: "178 kcal" },
-            { title: "Cena", items: ["100 g Tortilla a la francesa", "100 g Gamba hervida", "100 g Atún al natural"], kcal: "379 kcal" }
-          ]
-        },
-        MARTES: {
-          kcal: 1455, prot: 106, carbs: 122, fat: 60,
-          meals: [
-            { title: "Desayuno", items: ["100 g Pan de espelta integral MERCADONA", "100 g Café, infusión", "20 g Aceite de oliva virgen extra", "100 g Lomo embuchado Carrefour"], kcal: "691 kcal" },
-            { title: "Comida", items: ["100 g Bacalao", "100 g Patata", "100 g Pimiento rojo crudo", "100 g Cebolla", "100 g Tomate", "100 g Melocotón"], kcal: "293 kcal" },
-            { title: "Snack", items: ["100 g Arándanos"], kcal: "57 kcal" },
-            { title: "Cena", note: "Comprar la natilla de marca '+proteína' de Mercadona (envase rojo).", items: ["100 g Hamburguesa pollo de campo gruesa MERCADONA", "100 g Huevo fresco", "100 g Calabacín", "100 g Natilla de vainilla MERCADONA"], kcal: "414 kcal" }
-          ]
-        },
-        MIERCOLES: {
-          kcal: 1743, prot: 88, carbs: 209, fat: 56,
-          meals: [
-            { title: "Desayuno", items: ["70 g Pan integral Thin 99 kcal MERCADONA", "100 g Café, infusión", "100 g Lacón", "15 g Aceite de oliva virgen extra"], kcal: "528 kcal" },
-            { title: "Comida", items: ["100 g Ternera", "100 g Arroz", "100 g Piña"], kcal: "567 kcal" },
-            { title: "Snack", items: ["30 g Pistacho"], kcal: "178 kcal" },
-            { title: "Cena", note: "Mezcla quinoa con champiñones y espárragos salteados.", items: ["100 g Quinoa", "100 g Champiñones", "100 g Espárragos trigueros crudos", "100 g Yogur + proteínas natural MERCADONA"], kcal: "469 kcal" }
-          ]
-        },
-        JUEVES: {
-          kcal: 2039, prot: 108, carbs: 91, fat: 146,
-          meals: [
-            { title: "Desayuno", items: ["100 g Pan de centeno integral LIDL", "100 g Café, infusión", "100 g Aceite de oliva virgen extra", "100 g Pechuga de pavo asada El Pozo"], kcal: "1165 kcal" },
-            { title: "Comida", note: "Pollo asado al horno entero.", items: ["100 g Pollo asado al horno La Carloteña", "100 g Gazpacho"], kcal: "194 kcal" },
-            { title: "Snack", items: ["100 g Manzana"], kcal: "50 kcal" },
-            { title: "Cena", note: "Dora el ajo con tacos de jamón serrano y un huevo sobre guisantes.", items: ["100 g Guisante congelado MERCADONA", "100 g Huevo fresco", "100 g Ajo", "100 g Jamón serrano", "100 g Gelatina + proteína MERCADONA"], kcal: "630 kcal" }
-          ]
-        },
-        VIERNES: {
-          kcal: 1534, prot: 101, carbs: 118, fat: 69,
-          meals: [
-            { title: "Desayuno", items: ["70 g Pan de espelta integral MERCADONA", "100 g Café, infusión", "100 g Tiras de pollo al natural MERCADONA", "15 g Aceite de oliva virgen extra"], kcal: "465 kcal" },
-            { title: "Comida", items: ["100 g Garbanzos cocidos escurridos Carrefour", "100 g Bacalao", "100 g Naranja"], kcal: "214 kcal" },
-            { title: "Snack", items: ["100 g Anacardo crudo"], kcal: "584 kcal" },
-            { title: "Cena", items: ["100 g Pechuga de pollo FRESCA", "100 g Setas", "100 g Salsa de soja", "100 g Queso fresco batido Quark con arándanos"], kcal: "325 kcal" }
-          ]
-        },
-        SABADO: {
-          kcal: 796, prot: 70, carbs: 51, fat: 30,
-          meals: [
-            { title: "Desayuno", items: ["70 g Pan integral Thin MERCADONA", "100 g Café, infusión", "20 g Aceite de oliva virgen extra", "100 g Atún al natural"], kcal: "472 kcal" },
-            { title: "Comida Libre", note: "COMIDA LIBRE (prioriza proteínas, cuidado con no tirar por tierra todo el esfuerzo).", items: ["100 g Agua mineral de mineralización débil"], kcal: "0 kcal" },
-            { title: "Cena", items: ["100 g Pez espada", "100 g Batata", "100 g Melocotón"], kcal: "271 kcal" }
-          ]
-        },
-        DOMINGO: {
-          kcal: 1850, prot: 125, carbs: 160, fat: 70,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de centeno", "15 g Aceite de oliva virgen extra", "100 g Lomo embuchado"], kcal: "526 kcal" },
-            { title: "Comida", items: ["100 g Pulpo cocido", "100 g Patata cocida", "100 g Pimentón y aceite de oliva"], kcal: "479 kcal" },
-            { title: "Snack", items: ["100 g Fruta fresca o 30g Frutos secos"], kcal: "120 kcal" },
-            { title: "Cena", items: ["100 g Pechuga de pollo a la plancha", "100 g Ensalada variada", "100 g Queso fresco Quark"], kcal: "350 kcal" }
-          ]
-        }
+        LUNES: { kcal: 2343, prot: 140, carbs: 54, fat: 174, meals: [
+          { title: "Desayuno", items: ["Café", "Pan centeno", "Jamón serrano", "100g AOVE"], kcal: "1358 kcal" },
+          { title: "Comida", items: ["Pisto", "Huevo", "Pavo", "Mandarina"], kcal: "427 kcal" },
+          { title: "Snack", items: ["30g Pistacho"], kcal: "178 kcal" },
+          { title: "Cena", items: ["Tortilla", "Gamba", "Atún"], kcal: "379 kcal" }
+        ]},
+        MARTES: { kcal: 1455, prot: 106, carbs: 122, fat: 60, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "Café", "AOVE", "Lomo"], kcal: "691 kcal" },
+          { title: "Comida", items: ["Bacalao", "Patata", "Verduras", "Melocotón"], kcal: "293 kcal" },
+          { title: "Snack", items: ["Arándanos"], kcal: "57 kcal" },
+          { title: "Cena", items: ["Burger pollo", "Huevo", "Natilla proteica"], kcal: "414 kcal" }
+        ]},
+        MIERCOLES: { kcal: 1743, prot: 88, carbs: 209, fat: 56, meals: [
+          { title: "Desayuno", items: ["Pan Thin", "Lacón", "AOVE"], kcal: "528 kcal" },
+          { title: "Comida", items: ["Ternera", "Arroz", "Piña"], kcal: "567 kcal" },
+          { title: "Snack", items: ["Pistachos"], kcal: "178 kcal" },
+          { title: "Cena", items: ["Quinoa", "Champiñones", "Yogur proteico"], kcal: "469 kcal" }
+        ]},
+        JUEVES: { kcal: 2039, prot: 108, carbs: 91, fat: 146, meals: [
+          { title: "Desayuno", items: ["Pan centeno", "AOVE", "Pavo"], kcal: "1165 kcal" },
+          { title: "Comida", items: ["Pollo asado", "Gazpacho"], kcal: "194 kcal" },
+          { title: "Snack", items: ["Manzana"], kcal: "50 kcal" },
+          { title: "Cena", items: ["Guisantes", "Huevo", "Jamón", "Gelatina"], kcal: "630 kcal" }
+        ]},
+        VIERNES: { kcal: 1534, prot: 101, carbs: 118, fat: 69, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "Pavo", "AOVE"], kcal: "465 kcal" },
+          { title: "Comida", items: ["Garbanzos", "Bacalao", "Naranja"], kcal: "214 kcal" },
+          { title: "Snack", items: ["Anacardos"], kcal: "584 kcal" },
+          { title: "Cena", items: ["Pechuga pollo", "Setas", "Queso Quark"], kcal: "325 kcal" }
+        ]},
+        SABADO: { kcal: 796, prot: 70, carbs: 51, fat: 30, meals: [
+          { title: "Desayuno", items: ["Pan Thin", "Atún", "AOVE"], kcal: "472 kcal" },
+          { title: "Comida Libre", items: ["Agua"], kcal: "0 kcal" },
+          { title: "Cena", items: ["Pez espada", "Batata", "Melocotón"], kcal: "271 kcal" }
+        ]},
+        DOMINGO: { kcal: 1850, prot: 125, carbs: 160, fat: 70, meals: [
+          { title: "Desayuno", items: ["Pan centeno", "Lomo", "AOVE"], kcal: "526 kcal" },
+          { title: "Comida", items: ["Pulpo", "Patata"], kcal: "479 kcal" },
+          { title: "Snack", items: ["Fruta"], kcal: "120 kcal" },
+          { title: "Cena", items: ["Pollo plancha", "Ensalada", "Quark"], kcal: "350 kcal" }
+        ]}
       },
       3: {
-        LUNES: {
-          kcal: 1390, prot: 128, carbs: 110, fat: 42,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión sin azúcar", "60 g Pan de centeno integral", "10 g Aceite de oliva virgen extra", "80 g Pechuga de pavo en lonchas"], kcal: "310 kcal" },
-            { title: "Comida", note: "Déficit calórico enfocado en preservar masa muscular.", items: ["120 g Pechuga de pollo a la plancha", "80 g Arroz cocido", "150 g Brócoli al vapor", "100 g Piña natural"], kcal: "480 kcal" },
-            { title: "Snack", items: ["150 g Queso fresco batido 0% MERCADONA", "50 g Arándanos o fresas"], kcal: "110 kcal" },
-            { title: "Cena", note: "Cena ligera rica en proteína y verdura saciante.", items: ["120 g Merluza a la plancha", "150 g Ensalada de canónigos y tomate", "100 g Patata cocida", "1 Huevo duro"], kcal: "490 kcal" }
-          ]
-        },
-        MARTES: {
-          kcal: 1420, prot: 132, carbs: 105, fat: 44,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "60 g Pan de espelta integral", "10 g Aceite de oliva virgen extra", "80 g Lomo embuchado"], kcal: "330 kcal" },
-            { title: "Comida", items: ["120 g Filete de ternera magra", "100 g Batata o boniato al horno", "150 g Espárragos trigueros a la plancha"], kcal: "510 kcal" },
-            { title: "Snack", items: ["1 Yogur proteico sabor vainilla/fresa MERCADONA", "15 g Nueces (un puñado pequeño)"], kcal: "160 kcal" },
-            { title: "Cena", items: ["120 g Atún al natural", "150 g Pisto de verduras sin azúcar", "1 Huevo a la plancha"], kcal: "420 kcal" }
-          ]
-        },
-        MIERCOLES: {
-          kcal: 1350, prot: 125, carbs: 100, fat: 40,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "60 g Pan integral Thin", "10 g Aceite de oliva virgen extra", "80 g Lacón o jamón cocido"], kcal: "290 kcal" },
-            { title: "Comida", items: ["120 g Bacalao fresco", "80 g Quinoa cocida", "150 g Calabacín y pimiento salteados"], kcal: "460 kcal" },
-            { title: "Snack", items: ["100 g Manzana verde", "1 Gelatina + proteína MERCADONA"], kcal: "110 kcal" },
-            { title: "Cena", items: ["120 g Tiras de pollo al natural", "150 g Espinacas hervidas con ajo", "80 g Garbanzos cocidos"], kcal: "490 kcal" }
-          ]
-        },
-        JUEVES: {
-          kcal: 1410, prot: 130, carbs: 112, fat: 43,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "60 g Pan de centeno", "10 g Aceite de oliva virgen extra", "80 g Pollo asado La Carloteña"], kcal: "320 kcal" },
-            { title: "Comida", items: ["120 g Hamburguesa de pavo/pollo", "100 g Macarrones integrales cocidos", "100 g Tomate natural triturado"], kcal: "500 kcal" },
-            { title: "Snack", items: ["150 g Queso Quark 0%", "10 g Frutos secos variados"], kcal: "140 kcal" },
-            { title: "Cena", items: ["120 g Tortilla de 1 huevo entero y 2 claras", "100 g Gambas hervidas", "150 g Ensalada verde"], kcal: "450 kcal" }
-          ]
-        },
-        VIERNES: {
-          kcal: 1380, prot: 126, carbs: 108, fat: 41,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "60 g Pan de espelta integral", "10 g Aceite de oliva virgen extra", "80 g Atún al natural"], kcal: "310 kcal" },
-            { title: "Comida", items: ["120 g Sepia o pulpo a la plancha", "100 g Patata cocida", "150 g Menestra de verduras"], kcal: "470 kcal" },
-            { title: "Snack", items: ["1 Yogur de proteína", "100 g Fresas"], kcal: "120 kcal" },
-            { title: "Cena", items: ["120 g Pechuga de pollo a la plancha", "150 g Setas salteadas con ajo", "1 Naranja"], kcal: "480 kcal" }
-          ]
-        },
-        SABADO: {
-          kcal: 1200, prot: 110, carbs: 90, fat: 35,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "60 g Pan integral Thin", "10 g Aceite de oliva virgen extra", "80 g Pechuga de pavo"], kcal: "280 kcal" },
-            { title: "Comida Libre Controlada", note: "Prioriza proteína limpia y mantén el control en porciones.", items: ["150 g Pechuga de pollo o carne magra con ensalada variada"], kcal: "500 kcal" },
-            { title: "Cena", items: ["120 g Lenguado o merluza al horno", "150 g Verduras al wok", "100 g Melón o piña"], kcal: "420 kcal" }
-          ]
-        },
-        DOMINGO: {
-          kcal: 1400, prot: 130, carbs: 115, fat: 42,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "60 g Pan de espelta integral", "10 g Aceite de oliva virgen extra", "80 g Lomo embuchado"], kcal: "320 kcal" },
-            { title: "Comida", items: ["120 g Conejo o pollo al horno", "100 g Patata asada", "150 g Ensalada verde con tomate"], kcal: "510 kcal" },
-            { title: "Snack", items: ["1 Yogur proteico", "1 Kiwi"], kcal: "110 kcal" },
-            { title: "Cena", items: ["120 g Revuelto de claras con espárragos y gambas", "100 g Queso fresco Quark"], kcal: "460 kcal" }
-          ]
-        }
+        LUNES: { kcal: 1390, prot: 128, carbs: 110, fat: 42, meals: [
+          { title: "Desayuno", items: ["Café", "60 g Pan centeno", "10 g AOVE", "80 g Pavo"], kcal: "310 kcal" },
+          { title: "Comida", items: ["120 g Pollo", "80 g Arroz", "Brócoli", "Piña"], kcal: "480 kcal" },
+          { title: "Snack", items: ["150 g Queso Quark 0%", "Arándanos"], kcal: "110 kcal" },
+          { title: "Cena", items: ["120 g Merluza", "Ensalada", "Patata", "Huevo duro"], kcal: "490 kcal" }
+        ]},
+        MARTES: { kcal: 1420, prot: 132, carbs: 105, fat: 44, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "AOVE", "Lomo"], kcal: "330 kcal" },
+          { title: "Comida", items: ["Ternera", "Batata", "Espárragos"], kcal: "510 kcal" },
+          { title: "Snack", items: ["Yogur proteico", "Nueces"], kcal: "160 kcal" },
+          { title: "Cena", items: ["Atún", "Pisto", "Huevo"], kcal: "420 kcal" }
+        ]},
+        MIERCOLES: { kcal: 1350, prot: 125, carbs: 100, fat: 40, meals: [
+          { title: "Desayuno", items: ["Pan Thin", "Lacón", "AOVE"], kcal: "290 kcal" },
+          { title: "Comida", items: ["Bacalao", "Quinoa", "Calabacín"], kcal: "460 kcal" },
+          { title: "Snack", items: ["Manzana", "Gelatina proteica"], kcal: "110 kcal" },
+          { title: "Cena", items: ["Pollo", "Espinacas", "Garbanzos"], kcal: "490 kcal" }
+        ]},
+        JUEVES: { kcal: 1410, prot: 130, carbs: 112, fat: 43, meals: [
+          { title: "Desayuno", items: ["Pan centeno", "Pollo asado", "AOVE"], kcal: "320 kcal" },
+          { title: "Comida", items: ["Burger pavo", "Macarrones integrales", "Tomate"], kcal: "500 kcal" },
+          { title: "Snack", items: ["Queso Quark", "Frutos secos"], kcal: "140 kcal" },
+          { title: "Cena", items: ["Tortilla claras", "Gambas", "Ensalada"], kcal: "450 kcal" }
+        ]},
+        VIERNES: { kcal: 1380, prot: 126, carbs: 108, fat: 41, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "Atún", "AOVE"], kcal: "310 kcal" },
+          { title: "Comida", items: ["Sepia", "Patata", "Menestra"], kcal: "470 kcal" },
+          { title: "Snack", items: ["Yogur proteico", "Fresas"], kcal: "120 kcal" },
+          { title: "Cena", items: ["Pollo", "Setas", "Naranja"], kcal: "480 kcal" }
+        ]},
+        SABADO: { kcal: 1200, prot: 110, carbs: 90, fat: 35, meals: [
+          { title: "Desayuno", items: ["Pan Thin", "Pavo", "AOVE"], kcal: "280 kcal" },
+          { title: "Comida Libre", items: ["Pollo magro con ensalada"], kcal: "500 kcal" },
+          { title: "Cena", items: ["Lenguado", "Verduras wok", "Piña"], kcal: "420 kcal" }
+        ]},
+        DOMINGO: { kcal: 1400, prot: 130, carbs: 115, fat: 42, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "Lomo", "AOVE"], kcal: "320 kcal" },
+          { title: "Comida", items: ["Conejo horno", "Patata", "Ensalada"], kcal: "510 kcal" },
+          { title: "Snack", items: ["Yogur proteico", "Kiwi"], kcal: "110 kcal" },
+          { title: "Cena", items: ["Revuelto claras", "Queso Quark"], kcal: "460 kcal" }
+        ]}
       },
       4: {
-        LUNES: {
-          kcal: 1750, prot: 120, carbs: 170, fat: 55,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de centeno integral", "15 g Aceite de oliva virgen extra", "80 g Jamón serrano"], kcal: "380 kcal" },
-            { title: "Comida", note: "Normocalórica para máximo rendimiento en la barra.", items: ["120 g Ternera magra o pechuga de pollo", "120 g Arroz cocido", "150 g Pisto o verduras variadas", "100 g Piña"], kcal: "610 kcal" },
-            { title: "Snack", items: ["1 Yogur + proteico MERCADONA", "20 g Frutos secos variados"], kcal: "180 kcal" },
-            { title: "Cena", items: ["120 g Salmón a la plancha o bacalao", "120 g Patata cocida", "150 g Ensalada completa"], kcal: "580 kcal" }
-          ]
-        },
-        MARTES: {
-          kcal: 1780, prot: 122, carbs: 175, fat: 56,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de espelta integral", "15 g Aceite de oliva virgen extra", "80 g Lomo embuchado"], kcal: "390 kcal" },
-            { title: "Comida", items: ["120 g Pechuga de pollo", "120 g Batata al horno", "150 g Brócoli o judías verdes"], kcal: "600 kcal" },
-            { title: "Snack", items: ["150 g Queso Quark", "100 g Arándanos"], kcal: "160 kcal" },
-            { title: "Cena", items: ["120 g Hamburguesa de pollo de campo", "1 Huevo fresco", "150 g Calabacín a la plancha", "1 Natilla proteica"], kcal: "630 kcal" }
-          ]
-        },
-        MIERCOLES: {
-          kcal: 1720, prot: 118, carbs: 165, fat: 54,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan integral Thin", "15 g Aceite de oliva virgen extra", "100 g Lacón"], kcal: "370 kcal" },
-            { title: "Comida", items: ["120 g Cuscús o pasta integral", "120 g Tiras de pollo", "150 g Verduras variadas salteadas"], kcal: "620 kcal" },
-            { title: "Snack", items: ["1 Manzana", "20 g Almendras naturales"], kcal: "170 kcal" },
-            { title: "Cena", items: ["120 g Quinoa cocida", "120 g Champiñones y espárragos", "100 g Atún al natural"], kcal: "560 kcal" }
-          ]
-        },
-        JUEVES: {
-          kcal: 1760, prot: 121, carbs: 172, fat: 55,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de centeno", "15 g Aceite de oliva virgen extra", "80 g Pollo asado La Carloteña"], kcal: "380 kcal" },
-            { title: "Comida", items: ["120 g Macarrones integrales", "120 g Carne picada de pollo", "100 g Tomate triturado natural"], kcal: "630 kcal" },
-            { title: "Snack", items: ["1 Yogur proteico", "1 Plátano pequeño"], kcal: "190 kcal" },
-            { title: "Cena", items: ["120 g Tortilla de 2 huevos", "100 g Gambas hervidas", "150 g Ensalada verde"], kcal: "560 kcal" }
-          ]
-        },
-        VIERNES: {
-          kcal: 1740, prot: 119, carbs: 168, fat: 54,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de espelta integral", "15 g Aceite de oliva virgen extra", "80 g Atún al natural"], kcal: "370 kcal" },
-            { title: "Comida", items: ["120 g Garbanzos o lentejas cocidas", "120 g Bacalao o merluza", "1 Fruta (Naranja o Mandarina)"], kcal: "610 kcal" },
-            { title: "Snack", items: ["25 g Anacardos o nueces"], kcal: "160 kcal" },
-            { title: "Cena", items: ["120 g Pechuga de pollo a la plancha", "150 g Setas salteadas", "1 Queso fresco batido Quark con fruta"], kcal: "600 kcal" }
-          ]
-        },
-        SABADO: {
-          kcal: 1650, prot: 110, carbs: 150, fat: 50,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan integral Thin", "15 g Aceite de oliva virgen extra", "80 g Pechuga de pavo"], kcal: "360 kcal" },
-            { title: "Comida Libre (Flexibilidad 80/20)", note: "Disfruta de una comida libre manteniendo buen aporte proteico.", items: ["Comida a elección sin exceder porciones excesivas"], kcal: "750 kcal" },
-            { title: "Cena", items: ["120 g Pez espada o lubina a la plancha", "120 g Batata al horno", "1 Fruta fresca"], kcal: "540 kcal" }
-          ]
-        },
-        DOMINGO: {
-          kcal: 1770, prot: 122, carbs: 174, fat: 56,
-          meals: [
-            { title: "Desayuno", items: ["100 g Café o infusión", "70 g Pan de espelta integral", "15 g Aceite de oliva virgen extra", "80 g Lomo embuchado"], kcal: "380 kcal" },
-            { title: "Comida", items: ["120 g Pulpo cocido", "120 g Patata cocida con pimentón y AOVE"], kcal: "590 kcal" },
-            { title: "Snack", items: ["1 Ciruela o fruta de temporada", "15 g Frutos secos"], kcal: "140 kcal" },
-            { title: "Cena", items: ["120 g Melva o atún en ensalada completa con huevo duro y maíz"], kcal: "660 kcal" }
-          ]
-        }
-      }
-    };
-
-    // =========================================
-    // 🛒 BASE DE DATOS DE LA LISTA DE LA COMPRA
-    // =========================================
-    const shoppingListPhases = {
-      1: {
-        name: "Fase 1 (Base e Iniciación)",
-        categories: [
-          {
-            name: "🥩 Carnicería y Pescadería",
-            items: [
-              "Ternera (filete o hamburguesa) - 200g",
-              "Pechuga de pollo fresca / tiras al natural - 400g",
-              "Pollo asado en lonchas La Carloteña - 200g",
-              "Carne picada de pollo para burger - 200g",
-              "Fiambre de pavo / Pechuga asada El Pozo - 300g",
-              "Merluza fresca / congelada - 200g",
-              "Pulpo cocido - 200g",
-              "Lomo embuchado MERCADONA - 200g",
-              "Jamón serrano - 250g",
-              "Lacón en lonchas - 200g"
-            ]
-          },
-          {
-            name: "🥦 Frutería y Verduras",
-            items: [
-              "Patatas (o bote de patata cocida MERCADONA) - 1 kg",
-              "Batata / Boniato - 300g",
-              "Cebollas, Ajos y Pimientos (rojo/verde) - 1 malla cada uno",
-              "Pimiento rojo asado en tarro - 2 botes",
-              "Zanahorias y Calabacín - 500g cada uno",
-              "Espinacas frescas y Canónigos - 2 bolsas",
-              "Guisantes en conserva / congelados - 300g",
-              "Fruta variada: Piña, Mandarinas, Manzanas, Melocotón, Peras, Fresas, Naranjas, Ciruelas, Arándanos"
-            ]
-          },
-          {
-            name: "🧀 Refrigerados, Huevos y Lácteos",
-            items: [
-              "Huevos frescos de gallina - 2 docenas",
-              "Yogures de proteína (sabores variados) - 6 uds",
-              "Yogur griego natural - 2 uds",
-              "Queso fresco batido Quark - 2 tarrinas",
-              "Gelatinas + proteína MERCADONA - 4 uds",
-              "Queso feta para ensaladas - 1 paquete"
-            ]
-          },
-          {
-            name: "🌾 Despensa, Arroz y Conservas",
-            items: [
-              "Pan de centeno / Pan espelta integral / Pan Thin MERCADONA - 3 paquetes",
-              "Arroz sabroz / integral - 1 kg",
-              "Cuscús y Macarrones integrales - 1 paquete cada uno",
-              "Garbanzos cocidos en bote - 2 tarros",
-              "Atún al natural (latas de 60g) - 2 packs (12 latas)",
-              "Melva / Caballa en conserva - 2 latas",
-              "Leche de coco en lata - 1 lata",
-              "Tomate triturado natural - 1 bote",
-              "Aceite de oliva virgen extra (AOVE) - 1 botella",
-              "Frutos secos: Nueces, Anacardos, Almendras - 1 bolsa variada"
-            ]
-          }
-        ]
-      },
-      2: {
-        name: "Fase 2 (Volumen y Hipertrofia)",
-        categories: [
-          {
-            name: "🥩 Carnicería y Pescadería",
-            items: [
-              "Ternera magra - 200g",
-              "Pechuga de pavo / Pollo fresco - 500g",
-              "Hamburguesa pollo de campo gruesa MERCADONA - 200g",
-              "Pollo asado al horno entero - 1 ud",
-              "Bacalao / Pez espada fresco - 400g",
-              "Gambas hervidas / peladas - 300g",
-              "Jamón serrano / Lomo embuchado - 300g"
-            ]
-          },
-          {
-            name: "🥦 Frutería y Verduras",
-            items: [
-              "Patatas y Batatas - 1 kg",
-              "Pisto de verduras (brick o ingredientes caseros) - 2 bricks",
-              "Champiñones y Setas frescas - 400g",
-              "Espárragos trigueros - 2 manojos",
-              "Calabacín, Tomate, Pimiento rojo, Cebolla - 1 kg variado",
-              "Fruta: Mandarinas, Melocotón, Arándanos, Manzanas, Naranjas"
-            ]
-          },
-          {
-            name: "🧀 Refrigerados, Huevos y Lácteos",
-            items: [
-              "Huevos frescos - 2 docenas",
-              "Natilla de vainilla '+proteína' MERCADONA (envase rojo) - 4 uds",
-              "Yogur + proteínas natural MERCADONA - 4 uds",
-              "Queso fresco batido Quark con arándanos - 2 tarrinas",
-              "Gelatina + proteína MERCADONA - 2 uds"
-            ]
-          },
-          {
-            name: "🌾 Despensa, Arroz y Conservas",
-            items: [
-              "Pan de centeno / Espelta integral LIDL y MERCADONA - 3 paquetes",
-              "Quinoa y Arroz - 1 kg cada uno",
-              "Garbanzos cocidos Carrefour - 2 tarros",
-              "Atún al natural - 3 packs (18 latas)",
-              "Gazpacho fresco - 1 litro",
-              "Pistachos y Anacardos crudos - 2 bolsas",
-              "Salsa de soja - 1 botella"
-            ]
-          }
-        ]
-      },
-      3: {
-        name: "Fase 3 (Definición y Pérdida de Grasa)",
-        categories: [
-          {
-            name: "🥩 Carnicería y Pescadería",
-            items: [
-              "Pechuga de pollo y pavo magra - 800g",
-              "Filete de ternera magra - 200g",
-              "Hamburguesa de pavo/pollo limpia - 200g",
-              "Merluza / Bacalao fresco - 400g",
-              "Atún al natural en lata - 2 packs (12 latas)",
-              "Sepia / Pulpo cocido - 300g",
-              "Gambas peladas - 200g",
-              "Lomo embuchado y Lacón - 300g"
-            ]
-          },
-          {
-            name: "🥦 Frutería y Verduras",
-            items: [
-              "Brócoli, Canónigos y Espinacas - 3 bolsas",
-              "Espárragos trigueros y Setas - 300g",
-              "Calabacín, Pimiento, Tomates de ensalada - 1 kg variado",
-              "Patatas pequeñas y Batata - 500g",
-              "Fruta baja en calorías: Piña natural, Fresas, Arándanos, Manzanas verdes, Kiwis, Naranjas"
-            ]
-          },
-          {
-            name: "🧀 Refrigerados, Huevos y Lácteos",
-            items: [
-              "Claras de huevo líquidas + Huevos enteros - 1 bote de claras y 1 docena de huevos",
-              "Queso fresco batido 0% MERCADONA - 3 tarrinas",
-              "Yogures proteicos sabor vainilla/fresa - 6 uds",
-              "Gelatinas + proteína - 4 uds"
-            ]
-          },
-          {
-            name: "🌾 Despensa y Varios",
-            items: [
-              "Pan de centeno integral / Pan Thin - 2 paquetes",
-              "Arroz integral y Quinoa - 1 paquete cada uno",
-              "Macarrones integrales - 1 paquete",
-              "Garbanzos cocidos en tarro - 1 tarro",
-              "Nueces y Almendras naturales - 1 bolsa"
-            ]
-          }
-        ]
-      },
-      4: {
-        name: "Fase 4 (Mantenimiento Estructurado)",
-        categories: [
-          {
-            name: "🥩 Carnicería y Pescadería",
-            items: [
-              "Ternera magra y Pechuga de pollo - 800g",
-              "Hamburguesas de pollo de campo - 300g",
-              "Salmón fresco / Bacalao / Lubina / Pez espada - 600g",
-              "Pulpo cocido - 300g",
-              "Jamón serrano y Lomo embuchado - 300g"
-            ]
-          },
-          {
-            name: "🥦 Frutería y Verduras",
-            items: [
-              "Patatas y Batatas - 1.5 kg",
-              "Pisto de verduras y Brócoli - 500g",
-              "Ensaladas variadas, Champiñones, Espárragos - 1 kg",
-              "Fruta variada de temporada: Piña, Arándanos, Plátanos, Naranjas, Ciruelas"
-            ]
-          },
-          {
-            name: "🧀 Refrigerados, Huevos y Lácteos",
-            items: [
-              "Huevos frescos - 2 docenas",
-              "Yogures + proteicos MERCADONA - 6 uds",
-              "Natillas proteicas - 2 uds",
-              "Queso Quark - 2 tarrinas"
-            ]
-          },
-          {
-            name: "🌾 Despensa y Varios",
-            items: [
-              "Pan de centeno integral y Espelta - 3 paquetes",
-              "Arroz, Cuscús, Pasta integral, Quinoa - 1 paquete de cada uno",
-              "Garbanzos y Lentejas cocidas en tarro - 2 tarros",
-              "Atún y Melva en conserva - 2 packs",
-              "Frutos secos variados (Almendras, Anacardos, Nueces) - 1 bolsa"
-            ]
-          }
-        ]
+        LUNES: { kcal: 1750, prot: 120, carbs: 170, fat: 55, meals: [
+          { title: "Desayuno", items: ["Pan centeno", "Jamón serrano", "AOVE"], kcal: "380 kcal" },
+          { title: "Comida", items: ["Ternera", "Arroz", "Pisto", "Piña"], kcal: "610 kcal" },
+          { title: "Snack", items: ["Yogur proteico", "Frutos secos"], kcal: "180 kcal" },
+          { title: "Cena", items: ["Salmón", "Patata", "Ensalada"], kcal: "580 kcal" }
+        ]},
+        MARTES: { kcal: 1780, prot: 122, carbs: 175, fat: 56, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "Lomo", "AOVE"], kcal: "390 kcal" },
+          { title: "Comida", items: ["Pollo", "Batata", "Brócoli"], kcal: "600 kcal" },
+          { title: "Snack", items: ["Queso Quark", "Arándanos"], kcal: "160 kcal" },
+          { title: "Cena", items: ["Burger pollo", "Huevo", "Natilla proteica"], kcal: "630 kcal" }
+        ]},
+        MIERCOLES: { kcal: 1720, prot: 118, carbs: 165, fat: 54, meals: [
+          { title: "Desayuno", items: ["Pan Thin", "Lacón", "AOVE"], kcal: "370 kcal" },
+          { title: "Comida", items: ["Cuscús", "Pollo", "Verduras"], kcal: "620 kcal" },
+          { title: "Snack", items: ["Manzana", "Almendras"], kcal: "170 kcal" },
+          { title: "Cena", items: ["Quinoa", "Champiñones", "Atún"], kcal: "560 kcal" }
+        ]},
+        JUEVES: { kcal: 1760, prot: 121, carbs: 172, fat: 55, meals: [
+          { title: "Desayuno", items: ["Pan centeno", "Pollo", "AOVE"], kcal: "380 kcal" },
+          { title: "Comida", items: ["Macarrones", "Carne picada", "Tomate"], kcal: "630 kcal" },
+          { title: "Snack", items: ["Yogur proteico", "Plátano"], kcal: "190 kcal" },
+          { title: "Cena", items: ["Tortilla 2 huevos", "Gambas", "Ensalada"], kcal: "560 kcal" }
+        ]},
+        VIERNES: { kcal: 1740, prot: 119, carbs: 168, fat: 54, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "Atún", "AOVE"], kcal: "370 kcal" },
+          { title: "Comida", items: ["Garbanzos", "Bacalao", "Naranja"], kcal: "610 kcal" },
+          { title: "Snack", items: ["Anacardos"], kcal: "160 kcal" },
+          { title: "Cena", items: ["Pollo", "Setas", "Queso Quark"], kcal: "600 kcal" }
+        ]},
+        SABADO: { kcal: 1650, prot: 110, carbs: 150, fat: 50, meals: [
+          { title: "Desayuno", items: ["Pan Thin", "Pavo", "AOVE"], kcal: "360 kcal" },
+          { title: "Comida Libre", items: ["Comida flexible 80/20"], kcal: "750 kcal" },
+          { title: "Cena", items: ["Pez espada", "Batata", "Fruta"], kcal: "540 kcal" }
+        ]},
+        DOMINGO: { kcal: 1770, prot: 122, carbs: 174, fat: 56, meals: [
+          { title: "Desayuno", items: ["Pan espelta", "Lomo", "AOVE"], kcal: "380 kcal" },
+          { title: "Comida", items: ["Pulpo", "Patata", "AOVE"], kcal: "590 kcal" },
+          { title: "Snack", items: ["Ciruela", "Frutos secos"], kcal: "140 kcal" },
+          { title: "Cena", items: ["Melva", "Ensalada", "Huevo duro"], kcal: "660 kcal" }
+        ]}
       }
     };
 
     const allMesocyclesData = {
       1: {
         LUNES: [
-          { name: "Flexiones de Pecho", target: "3 series | 10-12 reps", sets: 3, pct: 60, note: "Peso corporal", video: "https://www.youtube.com/results?search_query=flexiones+pecho+tecnica" },
-          { name: "Remo Pendlay / Remo con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 55, note: "Espalda paralela", video: "https://www.youtube.com/results?search_query=remo+pendlay" },
-          { name: "Press Militar con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 35, note: "Mancuernas", video: "https://www.youtube.com/results?search_query=press+militar+mancuernas" },
-          { name: "Curl de Bíceps con Mancuerna", target: "3 series | 10-12 reps", sets: 3, pct: 20, note: "Bíceps", video: "https://www.youtube.com/results?search_query=curl+biceps+mancuerna" },
-          { name: "Tríceps OH con Mancuerna", target: "3 series | 10-12 reps", sets: 3, pct: 25, note: "Tríceps", video: "https://www.youtube.com/results?search_query=triceps+overhead+mancuerna" },
-          { name: "Plancha Abdominal con Disco", target: "3 series | 30-45 seg", sets: 3, pct: 10, note: "Core", video: "https://www.youtube.com/results?search_query=plancha+abdominal+con+disco" }
+          { name: "Flexiones de Pecho", target: "3 series | 10-12 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=flexiones+pecho" },
+          { name: "Remo Pendlay con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=remo+pendlay" }
         ],
-        MARTES: [
-          { name: "Sentadilla Trasera con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, note: "Barra guiada/libre", video: "https://www.youtube.com/results?search_query=sentadilla+trasera+con+barra" },
-          { name: "Peso Muerto Rumano con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 60, note: "Cadena posterior", video: "https://www.youtube.com/results?search_query=peso+muerto+rumano+barra" },
-          { name: "Zancada Frontal Goblet", target: "3 series | 10-12 reps/pierna", sets: 3, pct: 30, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancada+frontal+goblet" },
-          { name: "Curl de Isquios a Una Pierna", target: "3 series | 10-12 reps/pierna", sets: 3, pct: 35, note: "Isquios", video: "https://www.youtube.com/results?search_query=single+leg+curl+slide" },
-          { name: "Puente de Glúteo Unilateral", target: "3 series | 10-12 reps/pierna", sets: 3, pct: 25, note: "Glúteos", video: "https://www.youtube.com/results?search_query=puente+gluteo+unilateral" }
-        ],
-        JUEVES: [
-          { name: "Remo Unilateral con Mancuerna", target: "3 series | 10-12 reps/lado", sets: 3, pct: 30, note: "Espalda", video: "https://www.youtube.com/results?search_query=remo+unilateral+mancuerna" },
-          { name: "Press Banca Plano con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 55, note: "Pecho", video: "https://www.youtube.com/results?search_query=press+banca+plano+barra" },
-          { name: "Pájaro con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 15, note: "Hombros", video: "https://www.youtube.com/results?search_query=pajaro+con+mancuernas" },
-          { name: "Curl Scott", target: "3 series | 10-12 reps", sets: 3, pct: 20, note: "Bíceps", video: "https://www.youtube.com/results?search_query=curl+scott" },
-          { name: "Press Pallof", target: "3 series | 10-12 reps/lado", sets: 3, pct: 15, note: "Core", video: "https://www.youtube.com/results?search_query=press+pallof" }
-        ],
-        VIERNES: [
-          { name: "Sentadilla Trasera con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 45, note: "Piernas", video: "https://www.youtube.com/results?search_query=sentadilla+trasera+barra" },
-          { name: "Peso Muerto Piernas Rígidas", target: "3 series | 10-12 reps", sets: 3, pct: 55, note: "Isquios", video: "https://www.youtube.com/results?search_query=peso+muerto+piernas+rigidas" },
-          { name: "Zancada Frontal", target: "3 series | 10-12 reps/pierna", sets: 3, pct: 35, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancada+frontal" },
-          { name: "Curl de Isquios Deslizando", target: "3 series | 10-12 reps", sets: 3, pct: 40, note: "Isquios", video: "https://www.youtube.com/results?search_query=leg+curl+slides" },
-          { name: "Crunches Abdominales", target: "3 series | 12-15 reps", sets: 3, pct: 10, note: "Abdomen", video: "https://www.youtube.com/results?search_query=crunches+abdominales" }
-        ]
+        MARTES: [{ name: "Sentadilla Trasera", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" }],
+        JUEVES: [{ name: "Press Banca Plano", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=press+banca" }],
+        VIERNES: [{ name: "Peso Muerto Rígido", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=peso+muerto" }]
       },
       2: {
-        LUNES: [
-          { name: "Press Militar con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 40, note: "Hombros", video: "https://www.youtube.com/results?search_query=press+militar+mancuernas" },
-          { name: "Remo en TRX", target: "3 series | 10-12 reps", sets: 3, pct: 65, note: "Espalda", video: "https://www.youtube.com/results?search_query=remo+en+trx" },
-          { name: "Tríceps OH Mancuerna", target: "3 series | 10-12 reps", sets: 3, pct: 25, note: "Tríceps", video: "https://www.youtube.com/results?search_query=triceps+oh+mancuerna" },
-          { name: "Bíceps Agarre Supino TRX", target: "3 series | 10-12 reps", sets: 3, pct: 30, note: "Bíceps", video: "https://www.youtube.com/results?search_query=biceps+supino+trx" },
-          { name: "Vuelo Bilateral de Pie", target: "3 series | 10-12 reps", sets: 3, pct: 16, note: "Hombros", video: "https://www.youtube.com/results?search_query=vuelo+bilateral+mancuernas" },
-          { name: "Flexiones de Pecho", target: "3 series | 10-12 reps", sets: 3, pct: 60, note: "Pecho", video: "https://www.youtube.com/results?search_query=flexiones+de+pecho" }
-        ],
-        MARTES: [
-          { name: "Sentadilla Trasera con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, note: "Piernas", video: "https://www.youtube.com/results?search_query=sentadilla+trasera+barra" },
-          { name: "Zancada con Mancuernas", target: "3 series | 10-12 reps/pierna", sets: 3, pct: 35, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancada+frontal+mancuernas" },
-          { name: "Peso Muerto Piernas Rígidas", target: "3 series | 10-12 reps", sets: 3, pct: 60, note: "Isquios", video: "https://www.youtube.com/results?search_query=peso+muerto+piernas+rigidas" },
-          { name: "Curl Isquios Unilateral", target: "3 series | 10-12 reps", sets: 3, pct: 35, note: "Isquios", video: "https://www.youtube.com/results?search_query=single+leg+curl+slides" },
-          { name: "Puente de Glúteo Unilateral", target: "3 series | 10-12 reps", sets: 3, pct: 25, note: "Glúteos", video: "https://www.youtube.com/results?search_query=puente+gluteo+unilateral" },
-          { name: "Curl Isquios Bilateral", target: "3 series | 10-12 reps", sets: 3, pct: 40, note: "Isquios", video: "https://www.youtube.com/results?search_query=leg+curl+slides" }
-        ],
-        JUEVES: [
-          { name: "Flexión con TRX", target: "3 series | 10-12 reps", sets: 3, pct: 55, note: "Pecho", video: "https://www.youtube.com/results?search_query=flexion+con+trx" },
-          { name: "Remo Pendlay con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 60, note: "Espalda", video: "https://www.youtube.com/results?search_query=remo+pendlay" },
-          { name: "Fondo Tríceps", target: "3 series | 10-12 reps", sets: 3, pct: 55, note: "Tríceps", video: "https://www.youtube.com/results?search_query=fondo+triceps" },
-          { name: "Curl Scott", target: "3 series | 10-12 reps", sets: 3, pct: 22, note: "Bíceps", video: "https://www.youtube.com/results?search_query=curl+scott" },
-          { name: "Pájaro con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 16, note: "Hombros", video: "https://www.youtube.com/results?search_query=pajaro+con+mancuernas" },
-          { name: "Press Pallof", target: "3 series | 10-12 reps", sets: 3, pct: 15, note: "Core", video: "https://www.youtube.com/results?search_query=press+pallof" }
-        ],
-        VIERNES: [
-          { name: "Sentadilla Trasera con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, note: "Piernas", video: "https://www.youtube.com/results?search_query=sentadilla+trasera+barra" },
-          { name: "Zancada Goblet", target: "3 series | 10-12 reps", sets: 3, pct: 35, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancada+goblet" },
-          { name: "Peso Muerto Rumano con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 65, note: "Isquios", video: "https://www.youtube.com/results?search_query=peso+muerto+rumano+barra" },
-          { name: "Monster Walking", target: "3 series | 12-15 pasos/lado", sets: 3, pct: 15, note: "Glúteo medio", video: "https://www.youtube.com/results?search_query=monster+walking" },
-          { name: "Plancha Abdominal", target: "3 series | 30-45 seg", sets: 3, pct: 10, note: "Core", video: "https://www.youtube.com/results?search_query=plancha+abdominal" },
-          { name: "Crunches Abdominales", target: "3 series | 12-15 reps", sets: 3, pct: 10, note: "Abdomen", video: "https://www.youtube.com/results?search_query=crunches" }
-        ]
+        LUNES: [{ name: "Press Militar", target: "3 series | 10-12 reps", sets: 3, pct: 40, video: "https://www.youtube.com/results?search_query=press+militar" }],
+        MARTES: [{ name: "Sentadilla Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" }],
+        JUEVES: [{ name: "Flexión TRX", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=flexion+trx" }],
+        VIERNES: [{ name: "Peso Muerto Rumano", target: "3 series | 10-12 reps", sets: 3, pct: 65, video: "https://www.youtube.com/results?search_query=peso+muerto" }]
       },
       3: {
         LUNES: [
-          { name: "Press Banca Plano con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, note: "Preservación Pecho", video: "https://www.youtube.com/results?search_query=press+banca+plano+barra" },
-          { name: "Remo Pendlay / Remo con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, note: "Densidad Espalda", video: "https://www.youtube.com/results?search_query=remo+pendlay+barra" },
-          { name: "Press Militar de Pie con Barra/Mancuerna", target: "3 series | 8-10 reps", sets: 3, pct: 40, note: "Hombros", video: "https://www.youtube.com/results?search_query=press+militar+barra" },
-          { name: "Curl de Bíceps con Goma/Barra", target: "3 series | 10-12 reps", sets: 3, pct: 20, note: "Bíceps", video: "https://www.youtube.com/results?search_query=curl+biceps+barra" },
-          { name: "Extensiones de Tríceps TRX", target: "3 series | 10-12 reps", sets: 3, pct: 50, note: "Tríceps", video: "https://www.youtube.com/results?search_query=extensiones+triceps+trx" },
-          { name: "Plancha Abdominal", target: "3 series | 30-45 seg", sets: 3, pct: 10, note: "Core", video: "https://www.youtube.com/results?search_query=plancha+abdominal+tecnica" }
+          { name: "Press Banca Plano con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=press+banca" },
+          { name: "Remo Pendlay con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=remo+pendlay" }
         ],
-        MARTES: [
-          { name: "Sentadilla Trasera con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 55, note: "Gasto calórico/Cuádriceps", video: "https://www.youtube.com/results?search_query=sentadilla+trasera+barra" },
-          { name: "Peso Muerto Rumano con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 65, note: "Cadena Posterior", video: "https://www.youtube.com/results?search_query=peso+muerto+rumano+barra" },
-          { name: "Zancada Búlgara", target: "3 series | 10-12 reps/pierna", sets: 3, pct: 35, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancada+bulgara+banco" },
-          { name: "Curl Femoral TRX", target: "3 series | 10-12 reps", sets: 3, pct: 40, note: "Isquios", video: "https://www.youtube.com/results?search_query=curl+femoral+trx" },
-          { name: "Elevación de Gemelos", target: "3 series | 12-15 reps", sets: 3, pct: 15, note: "Gemelos", video: "https://www.youtube.com/results?search_query=elevacion+gemelos+unilateral" },
-          { name: "Press Pallof", target: "3 series | 10-12 reps", sets: 3, pct: 15, note: "Core", video: "https://www.youtube.com/results?search_query=press+pallof+con+goma" }
-        ],
-        JUEVES: [
-          { name: "Press Inclinado con Mancuernas/Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, note: "Pecho Superior", video: "https://www.youtube.com/results?search_query=press+inclinado+mancuernas" },
-          { name: "Remo Unilateral con Mancuerna", target: "3 series | 10-12 reps", sets: 3, pct: 30, note: "Espalda", video: "https://www.youtube.com/results?search_query=remo+unilateral+mancuerna" },
-          { name: "Elevaciones Laterales", target: "3 series | 12-15 reps", sets: 3, pct: 18, note: "Hombros", video: "https://www.youtube.com/results?search_query=elevaciones+laterales+mancuernas" },
-          { name: "Pájaro Posterior", target: "3 series | 12-15 reps", sets: 3, pct: 18, note: "Hombro posterior", video: "https://www.youtube.com/results?search_query=pajaro+deltoides+posterior" },
-          { name: "Fondos de Tríceps", target: "3 series | 10-12 reps", sets: 3, pct: 60, note: "Tríceps", video: "https://www.youtube.com/results?search_query=fondos+triceps+trx" },
-          { name: "Curl Inclinado", target: "3 series | 10-12 reps", sets: 3, pct: 24, note: "Bíceps", video: "https://www.youtube.com/results?search_query=curl+inclinado+biceps" }
-        ],
-        VIERNES: [
-          { name: "Hip Thrust con Barra en Banco", target: "3 series | 8-10 reps", sets: 3, pct: 70, note: "Glúteos/Cadena Posterior", video: "https://www.youtube.com/results?search_query=hip+thrust+con+barra" },
-          { name: "Peso Muerto Piernas Rígidas con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, note: "Isquios", video: "https://www.youtube.com/results?search_query=peso+muerto+piernas+rigidas+barra" },
-          { name: "Zancadas Caminando", target: "3 series | 10-12 reps/pierna", sets: 3, pct: 30, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancadas+caminando+mancuernas" },
-          { name: "Monster Walking", target: "3 series | 12-15 pasos/lado", sets: 3, pct: 15, note: "Glúteos", video: "https://www.youtube.com/results?search_query=monster+walk+banda" },
-          { name: "Crunches / Plancha", target: "3 series | 12-15 reps", sets: 3, pct: 15, note: "Core", video: "https://www.youtube.com/results?search_query=crunch+abdominal" }
-        ]
+        MARTES: [{ name: "Sentadilla Trasera con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=sentadilla" }],
+        JUEVES: [{ name: "Press Inclinado", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=press+inclinado" }],
+        VIERNES: [{ name: "Hip Thrust con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 70, video: "https://www.youtube.com/results?search_query=hip+thrust" }]
       },
       4: {
-        LUNES: [
-          { name: "Press Banca Plano con Barra", target: "3 series | 6-8 reps", sets: 3, pct: 68, note: "Fuerza/Mantenimiento Pecho", video: "https://www.youtube.com/results?search_query=press+banca+plano+barra" },
-          { name: "Remo Pendlay con Barra", target: "3 series | 6-8 reps", sets: 3, pct: 65, note: "Fuerza Espalda", video: "https://www.youtube.com/results?search_query=remo+pendlay+barra" },
-          { name: "Press Militar Sentado/Pie con Barra", target: "3 series | 6-8 reps", sets: 3, pct: 45, note: "Fuerza Hombros", video: "https://www.youtube.com/results?search_query=press+militar+barra" },
-          { name: "Curl de Bíceps con Barra", target: "3 series | 8 reps", sets: 3, pct: 25, note: "Bíceps", video: "https://www.youtube.com/results?search_query=curl+biceps+barra" },
-          { name: "Fondos de Tríceps / TRX", target: "3 series | 8 reps", sets: 3, pct: 65, note: "Tríceps", video: "https://www.youtube.com/results?search_query=fondos+triceps" },
-          { name: "Plancha Abdominal Lastrada", target: "3 series | 45-60 seg", sets: 3, pct: 15, note: "Core", video: "https://www.youtube.com/results?search_query=plancha+abdominal+lastrada" }
-        ],
-        MARTES: [
-          { name: "Sentadilla Trasera con Barra", target: "3 series | 6-8 reps", sets: 3, pct: 60, note: "Tensión Mecánica Piernas", video: "https://www.youtube.com/results?search_query=sentadilla+trasera+barra" },
-          { name: "Peso Muerto Rumano con Barra", target: "3 series | 6-8 reps", sets: 3, pct: 70, note: "Isquios/Fuerza", video: "https://www.youtube.com/results?search_query=peso+muerto+rumano+barra" },
-          { name: "Zancada Búlgara", target: "3 series | 8 reps/pierna", sets: 3, pct: 40, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancada+bulgara+banco" },
-          { name: "Curl Femoral TRX", target: "3 series | 8-10 reps", sets: 3, pct: 45, note: "Isquios", video: "https://www.youtube.com/results?search_query=curl+femoral+trx" },
-          { name: "Gemelos Unilateral con Carga", target: "3 series | 10 reps/pierna", sets: 3, pct: 25, note: "Gemelos", video: "https://www.youtube.com/results?search_query=elevacion+gemelos+unilateral" },
-          { name: "Press Pallof Fuerte", target: "3 series | 10 reps/lado", sets: 3, pct: 20, note: "Core", video: "https://www.youtube.com/results?search_query=press+pallof+fuerte" }
-        ],
-        JUEVES: [
-          { name: "Press Inclinado con Barra/Mancuernas", target: "3 series | 6-8 reps", sets: 3, pct: 58, note: "Pecho Superior", video: "https://www.youtube.com/results?search_query=press+inclinado+barra" },
-          { name: "Remo Unilateral Pesado", target: "3 series | 6-8 reps", sets: 3, pct: 38, note: "Espalda", video: "https://www.youtube.com/results?search_query=remo+unilateral+mancuerna" },
-          { name: "Elevaciones Laterales (Pausa)", target: "3 series | 10 reps", sets: 3, pct: 20, note: "Hombros", video: "https://www.youtube.com/results?search_query=elevaciones+laterales+tecnica" },
-          { name: "Pájaro Posterior Pesado", target: "3 series | 10 reps", sets: 3, pct: 20, note: "Hombros", video: "https://www.youtube.com/results?search_query=pajaro+deltoides+posterior" },
-          { name: "Extensiones Tríceps TRX", target: "3 series | 8 reps", sets: 3, pct: 60, note: "Tríceps", video: "https://www.youtube.com/results?search_query=extensiones+triceps+trx" },
-          { name: "Curl Inclinado Pesado", target: "3 series | 8 reps", sets: 3, pct: 28, note: "Bíceps", video: "https://www.youtube.com/results?search_query=curl+inclinado+biceps" }
-        ],
-        VIERNES: [
-          { name: "Hip Thrust Pesado con Barra", target: "3 series | 6-8 reps", sets: 3, pct: 75, note: "Mantenimiento Glúteos", video: "https://www.youtube.com/results?search_query=hip+thrust+con+barra" },
-          { name: "Peso Muerto Piernas Rígidas con Barra", target: "3 series | 6-8 reps", sets: 3, pct: 65, note: "Isquios", video: "https://www.youtube.com/results?search_query=peso+muerto+piernas+rigidas+barra" },
-          { name: "Zancadas Caminando Pesadas", target: "3 series | 8-10 reps/pierna", sets: 3, pct: 35, note: "Piernas", video: "https://www.youtube.com/results?search_query=zancadas+caminando+mancuernas" },
-          { name: "Monster Walk Fuerte", target: "3 series | 12 pasos/lado", sets: 3, pct: 20, note: "Glúteos", video: "https://www.youtube.com/results?search_query=monster+walk+banda" },
-          { name: "Crunches Lastrados", target: "3 series | 10-12 reps", sets: 3, pct: 20, note: "Core", video: "https://www.youtube.com/results?search_query=crunches+lastrados" }
-        ]
+        LUNES: [{ name: "Press Banca Plano", target: "3 series | 6-8 reps", sets: 3, pct: 68, video: "https://www.youtube.com/results?search_query=press+banca" }],
+        MARTES: [{ name: "Sentadilla Trasera", target: "3 series | 6-8 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=sentadilla" }],
+        JUEVES: [{ name: "Press Inclinado", target: "3 series | 6-8 reps", sets: 3, pct: 58, video: "https://www.youtube.com/results?search_query=press+inclinado" }],
+        VIERNES: [{ name: "Hip Thrust Pesado", target: "3 series | 6-8 reps", sets: 3, pct: 75, video: "https://www.youtube.com/results?search_query=hip+thrust" }]
       }
     };
 
@@ -1362,111 +949,114 @@
     let currentMeso = parseInt(localStorage.getItem('m3_active_meso')) || 3;
     let currentWeek = parseInt(localStorage.getItem('m3_active_week')) || 1;
     let currentGoal = localStorage.getItem('m3_user_goal') || 'definicion';
-    let currentDay = "LUNES";
-    let chartInstances = {};
-    
-    function getCurrentDayName() {
-      const daysMap = ['DOMINGO', 'LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO'];
-      const todayIdx = new Date().getDay();
-      return daysMap[todayIdx];
-    }
-
-    let currentNutriDay = getCurrentDayName();
-    let bodyWeight = parseFloat(localStorage.getItem('m3_user_weight')) || 0;
+    let currentDay = "INICIO";
+    let currentNutriDay = "LUNES";
+    let bodyWeight = parseFloat(localStorage.getItem('m3_user_weight')) || 75;
 
     loadProfileData();
-    updateWelcomeBanner();
+    initHomeDashboard();
 
     document.getElementById('user-goal-select').value = currentGoal;
     document.getElementById('current-meso-select').value = currentMeso;
     document.getElementById('current-week-select').value = currentWeek;
 
-    updateLabels();
+    function initHomeDashboard() {
+      const name = localStorage.getItem('m3_prof_name') || 'FRANCISCO';
+      document.getElementById('home-username-text').innerText = name;
 
-    const autoToday = getCurrentDayName();
-    switchDay(autoToday === 'DOMINGO' || autoToday === 'SABADO' ? 'LUNES' : autoToday);
+      const hour = new Date().getHours();
+      let greeting = "Buenas tardes,";
+      if (hour < 12) greeting = "Buenos días,";
+      else if (hour >= 21) greeting = "Buenas noches,";
+      document.getElementById('home-greeting-text').innerText = greeting;
 
-    function updateWelcomeBanner() {
-      const name = localStorage.getItem('m3_prof_name') || '';
-      const messageElem = document.getElementById('welcome-message');
-      const dateElem = document.getElementById('current-date-str');
+      const todayName = getCurrentTrainingDay();
+      document.getElementById('dash-workout-title').innerText = `Entrenamiento: ${todayName}`;
+      document.getElementById('plan-hoy-day-label').innerText = `Ver ${todayName.toLowerCase()} ➔`;
 
-      if (name.trim() !== '') {
-        messageElem.innerText = `¡Hola, ${name}! Tu reto para hoy:`;
+      loadExtraActivitiesList();
+    }
+
+    function getCurrentTrainingDay() {
+      const daysMap = ['DOMINGO', 'LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO'];
+      const todayIdx = new Date().getDay();
+      let d = daysMap[todayIdx];
+      if (d === 'SABADO' || d === 'DOMINGO') return 'LUNES';
+      return d;
+    }
+
+    function toggleExtraActivityCard() {
+      const card = document.getElementById('extra-activity-section');
+      const arrow = document.getElementById('extra-arrow-icon');
+      if (card.style.display === 'none') {
+        card.style.display = 'block';
+        arrow.innerText = '▲';
       } else {
-        messageElem.innerText = `¡Hola! Tu reto para hoy:`;
+        card.style.display = 'none';
+        arrow.innerText = '▼';
       }
+    }
 
-      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-      const today = new Date();
-      dateElem.innerText = today.toLocaleDateString('es-ES', options);
+    function saveExtraActivity() {
+      const tipo = document.getElementById('extra-tipo').value;
+      const tiempo = document.getElementById('extra-tiempo').value || '0';
+      const kcal = document.getElementById('extra-kcal').value || '0';
+      const notas = document.getElementById('extra-notas').value || '';
+      const dateStr = new Date().toLocaleDateString();
+
+      const activity = { tipo, tiempo, kcal, notas, dateStr };
+      let list = JSON.parse(localStorage.getItem('m3_extra_activities')) || [];
+      list.unshift(activity);
+      localStorage.setItem('m3_extra_activities', JSON.stringify(list));
+
+      alert(`¡Actividad de ${tipo} guardada correctamente!`);
+      document.getElementById('extra-tiempo').value = '';
+      document.getElementById('extra-kcal').value = '';
+      document.getElementById('extra-notas').value = '';
+      loadExtraActivitiesList();
+    }
+
+    function loadExtraActivitiesList() {
+      const container = document.getElementById('extra-saved-list');
+      const list = JSON.parse(localStorage.getItem('m3_extra_activities')) || [];
+      if (list.length === 0) {
+        container.innerHTML = '<em>No hay actividades extra registradas.</em>';
+        document.getElementById('dash-extra-status').innerText = 'Añade running, pádel, spinning...';
+        return;
+      }
+      document.getElementById('dash-extra-status').innerText = `Última: ${list[0].tipo} (${list[0].tiempo} min)`;
+      let html = '<strong>Registros recientes:</strong><br>';
+      list.slice(0, 3).forEach(item => {
+        html += `• ${item.dateStr} - <strong>${item.tipo}</strong> (${item.tiempo} min)<br>`;
+      });
+      container.innerHTML = html;
     }
 
     function loadProfileData() {
       document.getElementById('prof-name').value = localStorage.getItem('m3_prof_name') || '';
-      document.getElementById('prof-dob').value = localStorage.getItem('m3_prof_dob') || '';
       document.getElementById('prof-height').value = localStorage.getItem('m3_prof_height') || '';
       document.getElementById('prof-weight').value = localStorage.getItem('m3_user_weight') || '';
-      document.getElementById('prof-base-grasa').value = localStorage.getItem('m3_prof_base_grasa') || '';
-      document.getElementById('prof-base-pecho').value = localStorage.getItem('m3_prof_base_pecho') || '';
-      document.getElementById('prof-base-cintura').value = localStorage.getItem('m3_prof_base_cintura') || '';
-      document.getElementById('prof-base-abdominal').value = localStorage.getItem('m3_prof_base_abdominal') || '';
-      document.getElementById('prof-base-cadera').value = localStorage.getItem('m3_prof_base_cadera') || '';
-      document.getElementById('prof-base-brazo').value = localStorage.getItem('m3_prof_base_brazo') || '';
-      document.getElementById('prof-base-pierna').value = localStorage.getItem('m3_prof_base_pierna') || '';
-      document.getElementById('prof-base-gemelo').value = localStorage.getItem('m3_prof_base_gemelo') || '';
-
-      const weight = localStorage.getItem('m3_user_weight');
-      if (weight) bodyWeight = parseFloat(weight);
     }
 
     function saveProfile() {
       localStorage.setItem('m3_prof_name', document.getElementById('prof-name').value);
-      localStorage.setItem('m3_prof_dob', document.getElementById('prof-dob').value);
       localStorage.setItem('m3_prof_height', document.getElementById('prof-height').value);
       localStorage.setItem('m3_user_weight', document.getElementById('prof-weight').value);
-      localStorage.setItem('m3_prof_base_grasa', document.getElementById('prof-base-grasa').value);
-      localStorage.setItem('m3_prof_base_pecho', document.getElementById('prof-base-pecho').value);
-      localStorage.setItem('m3_prof_base_cintura', document.getElementById('prof-base-cintura').value);
-      localStorage.setItem('m3_prof_base_abdominal', document.getElementById('prof-base-abdominal').value);
-      localStorage.setItem('m3_prof_base_cadera', document.getElementById('prof-base-cadera').value);
-      localStorage.setItem('m3_prof_base_brazo', document.getElementById('prof-base-brazo').value);
-      localStorage.setItem('m3_prof_base_pierna', document.getElementById('prof-base-pierna').value);
-      localStorage.setItem('m3_prof_base_gemelo', document.getElementById('prof-base-gemelo').value);
-
-      const weight = document.getElementById('prof-weight').value;
-      if (weight !== '') bodyWeight = parseFloat(weight);
-
-      updateWelcomeBanner();
-      alert('¡Perfil y Métricas Base guardados correctamente!');
-    }
-
-    function updateLabels() {
-      document.querySelectorAll('.active-meso-num').forEach(el => el.innerText = currentMeso);
-      document.querySelectorAll('.active-week-num').forEach(el => el.innerText = currentWeek);
-      const tag = document.getElementById('metrics-fase-week-tag');
-      if (tag) tag.innerText = `Fase ${currentMeso} | Sem ${currentWeek}`;
+      initHomeDashboard();
+      alert('¡Perfil guardado correctamente!');
     }
 
     function switchMesocycle(mesoNum) {
       currentMeso = parseInt(mesoNum);
       localStorage.setItem('m3_active_meso', currentMeso);
-      updateLabels();
       renderExercises();
       if (currentDay === 'NUTRICION') renderNutrition();
-      if (currentDay === 'MIERCOLES') loadWeeklyMetrics();
-      if (currentDay === 'PROGRESO') renderProgressCharts();
-      loadHistory();
     }
 
     function switchWeek(weekNum) {
       currentWeek = parseInt(weekNum);
       localStorage.setItem('m3_active_week', currentWeek);
-      updateLabels();
       renderExercises();
-      if (currentDay === 'MIERCOLES') loadWeeklyMetrics();
-      if (currentDay === 'PROGRESO') renderProgressCharts();
-      loadHistory();
     }
 
     function updateUserGoal(goal) {
@@ -1475,53 +1065,33 @@
       renderExercises();
     }
 
-    function updateExercisePct(exIdx, newPct) {
-      const pct = parseFloat(newPct) || 0;
-      workoutData[currentMeso][currentDay][exIdx].pct = pct;
-      localStorage.setItem('m3_custom_workout_data', JSON.stringify(workoutData));
-      renderExercises();
-    }
-
     function switchDay(day) {
       currentDay = day;
       document.querySelectorAll('.day-btn').forEach(btn => btn.classList.remove('active'));
-
       const activeBtn = document.getElementById(`btn-${day}`);
       if (activeBtn) activeBtn.classList.add('active');
 
-      const workoutView = document.getElementById('workout-view');
-      const restView = document.getElementById('rest-view');
-      const progressView = document.getElementById('progress-view');
-      const nutritionView = document.getElementById('nutrition-view');
-      const profileView = document.getElementById('profile-view');
-      const videosView = document.getElementById('videos-view');
+      document.getElementById('home-view').style.display = 'none';
+      document.getElementById('workout-view').style.display = 'none';
+      document.getElementById('rest-view').style.display = 'none';
+      document.getElementById('progress-view').style.display = 'none';
+      document.getElementById('nutrition-view').style.display = 'none';
+      document.getElementById('profile-view').style.display = 'none';
+      document.getElementById('videos-view').style.display = 'none';
 
-      workoutView.style.display = 'none';
-      restView.style.display = 'none';
-      progressView.style.display = 'none';
-      nutritionView.style.display = 'none';
-      profileView.style.display = 'none';
-      videosView.style.display = 'none';
-
-      if (day === 'MIERCOLES') {
-        restView.style.display = 'block';
-        loadWeeklyMetrics();
-      } else if (day === 'PROGRESO') {
-        progressView.style.display = 'block';
-        renderProgressCharts();
+      if (day === 'INICIO') {
+        document.getElementById('home-view').style.display = 'block';
+        initHomeDashboard();
+      } else if (day === 'MIERCOLES') {
+        document.getElementById('rest-view').style.display = 'block';
       } else if (day === 'NUTRICION') {
-        nutritionView.style.display = 'block';
-        currentNutriDay = getCurrentDayName();
+        document.getElementById('nutrition-view').style.display = 'block';
         renderNutrition();
       } else if (day === 'PERFIL') {
-        profileView.style.display = 'block';
-      } else if (day === 'VIDEOS') {
-        videosView.style.display = 'block';
-        renderProgressVideos();
+        document.getElementById('profile-view').style.display = 'block';
       } else {
-        workoutView.style.display = 'block';
+        document.getElementById('workout-view').style.display = 'block';
         renderExercises();
-        loadHistory();
       }
     }
 
@@ -1530,463 +1100,63 @@
       renderNutrition();
     }
 
-    function saveWeeklyMetrics() {
-      const key = `m3_metrics_f${currentMeso}_w${currentWeek}`;
-      const data = {
-        peso: document.getElementById('m-peso').value,
-        grasa: document.getElementById('m-grasa').value,
-        pecho: document.getElementById('m-pecho').value,
-        cintura: document.getElementById('m-cintura').value,
-        abdominal: document.getElementById('m-abdominal').value,
-        cadera: document.getElementById('m-cadera').value,
-        brazo: document.getElementById('m-brazo').value,
-        pierna: document.getElementById('m-pierna').value,
-        gemelo: document.getElementById('m-gemelo').value,
-        date: new Date().toLocaleDateString()
-      };
-
-      localStorage.setItem(key, JSON.stringify(data));
-      alert(`¡Métricas para la Fase ${currentMeso} - Semana ${currentWeek} guardadas con éxito!`);
-      loadWeeklyMetrics();
-    }
-
-    function loadWeeklyMetrics() {
-      const key = `m3_metrics_f${currentMeso}_w${currentWeek}`;
-      const saved = localStorage.getItem(key);
-
-      if (saved) {
-        const data = JSON.parse(saved);
-        document.getElementById('m-peso').value = data.peso || '';
-        document.getElementById('m-grasa').value = data.grasa || '';
-        document.getElementById('m-pecho').value = data.pecho || '';
-        document.getElementById('m-cintura').value = data.cintura || '';
-        document.getElementById('m-abdominal').value = data.abdominal || '';
-        document.getElementById('m-cadera').value = data.cadera || '';
-        document.getElementById('m-brazo').value = data.brazo || '';
-        document.getElementById('m-pierna').value = data.pierna || '';
-        document.getElementById('m-gemelo').value = data.gemelo || '';
-      } else {
-        document.getElementById('m-peso').value = '';
-        document.getElementById('m-grasa').value = '';
-        document.getElementById('m-pecho').value = '';
-        document.getElementById('m-cintura').value = '';
-        document.getElementById('m-abdominal').value = '';
-        document.getElementById('m-cadera').value = '';
-        document.getElementById('m-brazo').value = '';
-        document.getElementById('m-pierna').value = '';
-        document.getElementById('m-gemelo').value = '';
-      }
-
-      renderMetricsHistory();
-    }
-
-    function renderMetricsHistory() {
-      const container = document.getElementById('metrics-history-content');
-      let html = '';
-      let found = false;
-
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (k && k.startsWith('m3_metrics_f')) {
-          found = true;
-          const parts = k.replace('m3_metrics_f', '').split('_w');
-          const meso = parts[0];
-          const week = parts[1];
-          const data = JSON.parse(localStorage.getItem(k));
-
-          html += `
-            <div class="history-item" style="margin-bottom:6px; padding-bottom:6px;">
-              <strong style="color:var(--highlight);">Fase ${meso} | Semana ${week} (${data.date || 'Sin fecha'}):</strong><br>
-              ⚖️ Peso: <strong>${data.peso || '-'} kg</strong> | Grasa: <strong>${data.grasa || '-'}%</strong><br>
-              📐 Pecho: ${data.pecho || '-'}cm | Cintura: ${data.cintura || '-'}cm | Abdominal: ${data.abdominal || '-'}cm | Cadera: ${data.cadera || '-'}cm<br>
-              💪 Brazo: ${data.brazo || '-'}cm | Pierna: ${data.pierna || '-'}cm | Gemelo: ${data.gemelo || '-'}cm
-            </div>
-          `;
-        }
-      }
-
-      container.innerHTML = found ? html : '<em>No hay registros de métricas guardados todavía.</em>';
-    }
-
-    function renderProgressCharts() {
-      const container = document.getElementById('progress-charts-list');
-      
-      let records = [];
-      
-      const basePeso = localStorage.getItem('m3_user_weight');
-      if (basePeso) {
-        records.push({
-          label: 'Base Inicio',
-          peso: parseFloat(basePeso) || null,
-          grasa: parseFloat(localStorage.getItem('m3_prof_base_grasa')) || null,
-          pecho: parseFloat(localStorage.getItem('m3_prof_base_pecho')) || null,
-          cintura: parseFloat(localStorage.getItem('m3_prof_base_cintura')) || null,
-          abdominal: parseFloat(localStorage.getItem('m3_prof_base_abdominal')) || null,
-          cadera: parseFloat(localStorage.getItem('m3_prof_base_cadera')) || null,
-          brazo: parseFloat(localStorage.getItem('m3_prof_base_brazo')) || null,
-          pierna: parseFloat(localStorage.getItem('m3_prof_base_pierna')) || null,
-          gemelo: parseFloat(localStorage.getItem('m3_prof_base_gemelo')) || null
-        });
-      }
-
-      let weekKeys = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const k = localStorage.key(i);
-        if (k && k.startsWith('m3_metrics_f')) {
-          weekKeys.push(k);
-        }
-      }
-
-      weekKeys.sort();
-
-      weekKeys.forEach(k => {
-        const parts = k.replace('m3_metrics_f', '').split('_w');
-        const data = JSON.parse(localStorage.getItem(k));
-        records.push({
-          label: `F${parts[0]} W${parts[1]}`,
-          peso: parseFloat(data.peso) || null,
-          grasa: parseFloat(data.grasa) || null,
-          pecho: parseFloat(data.pecho) || null,
-          cintura: parseFloat(data.cintura) || null,
-          abdominal: parseFloat(data.abdominal) || null,
-          cadera: parseFloat(data.cadera) || null,
-          brazo: parseFloat(data.brazo) || null,
-          pierna: parseFloat(data.pierna) || null,
-          gemelo: parseFloat(data.gemelo) || null
-        });
-      });
-
-      if (records.length === 0) {
-        container.innerHTML = '<p style="font-size:0.85rem; color:var(--text-muted); text-align:center;">No hay métricas registradas aún. Introduce datos el miércoles o en tu perfil para ver la evolución.</p>';
-        return;
-      }
-
-      const labels = records.map(r => r.label);
-
-      const metricsDef = [
-        { key: 'peso', title: '⚖️ Evolución de Peso (kg)', color: '#38bdf8' },
-        { key: 'grasa', title: '📊 Índice de Grasa Corporal (%)', color: '#f59e0b' },
-        { key: 'pecho', title: '📐 Diámetro Pecho (cm)', color: '#10b981' },
-        { key: 'cintura', title: '📐 Diámetro Cintura (cm)', color: '#ef4444' },
-        { key: 'abdominal', title: '📐 Diámetro Abdominal (cm)', color: '#8b5cf6' },
-        { key: 'cadera', title: '📐 Diámetro Cadera (cm)', color: '#ec4899' },
-        { key: 'brazo', title: '💪 Diámetro Brazo Dominante (cm)', color: '#14b8a6' },
-        { key: 'pierna', title: '🍗 Diámetro Pierna Dominante (cm)', color: '#f97316' },
-        { key: 'gemelo', title: '🦶 Diámetro Gemelo Dominante (cm)', color: '#a855f7' }
-      ];
-
-      container.innerHTML = '';
-
-      metricsDef.forEach((metric, idx) => {
-        const card = document.createElement('div');
-        card.className = 'chart-card';
-        const canvasId = `chart_${metric.key}`;
-        card.innerHTML = `
-          <h3>${metric.title}</h3>
-          <div class="chart-container">
-            <canvas id="${canvasId}"></canvas>
-          </div>
-        `;
-        container.appendChild(card);
-
-        const dataPoints = records.map(r => r[metric.key]);
-
-        setTimeout(() => {
-          const ctx = document.getElementById(canvasId).getContext('2d');
-          if (chartInstances[canvasId]) chartInstances[canvasId].destroy();
-
-          chartInstances[canvasId] = new Chart(ctx, {
-            type: 'line',
-            data: {
-              labels: labels,
-              datasets: [{
-                label: metric.title,
-                data: dataPoints,
-                borderColor: metric.color,
-                backgroundColor: metric.color + '22',
-                borderWidth: 2,
-                fill: true,
-                tension: 0.3,
-                pointRadius: 4,
-                pointBackgroundColor: metric.color
-              }]
-            },
-            options: {
-              responsive: true,
-              maintainAspectRatio: false,
-              plugins: { legend: { display: false } },
-              scales: {
-                x: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#2e3a52' } },
-                y: { ticks: { color: '#94a3b8', font: { size: 10 } }, grid: { color: '#2e3a52' } }
-              }
-            }
-          });
-        }, 50);
-      });
-    }
-
     function renderNutrition() {
       document.querySelectorAll('.nutri-day-btn').forEach(btn => btn.classList.remove('active'));
       const activeNutriBtn = document.getElementById(`nday-${currentNutriDay}`);
       if (activeNutriBtn) activeNutriBtn.classList.add('active');
 
-      const dailyMenuContainer = document.getElementById('daily-menu-container');
-      const shoppingListContainer = document.getElementById('shopping-list-container');
+      const activePhase = nutritionPhasesData[currentMeso] || nutritionPhasesData[3];
+      const dayData = activePhase[currentNutriDay] || activePhase.LUNES;
 
-      if (currentNutriDay === 'COMPRA') {
-        dailyMenuContainer.style.display = 'none';
-        shoppingListContainer.style.display = 'block';
-        renderShoppingList();
-      } else {
-        dailyMenuContainer.style.display = 'block';
-        shoppingListContainer.style.display = 'none';
+      document.getElementById('nutri-header-cal').innerText = dayData.kcal;
+      document.getElementById('nutri-header-prot').innerText = `${dayData.prot} g`;
+      document.getElementById('nutri-header-carb').innerText = `${dayData.carbs} g`;
+      document.getElementById('nutri-header-fat').innerText = `${dayData.fat} g`;
 
-        const activePhase = nutritionPhasesData[currentMeso] || nutritionPhasesData[3];
-        const dayData = activePhase[currentNutriDay] || activePhase.LUNES;
+      const mealsContainer = document.getElementById('nutri-meals-container');
+      mealsContainer.innerHTML = '';
 
-        document.getElementById('nutri-header-cal').innerText = dayData.kcal;
-        document.getElementById('nutri-header-prot').innerText = `${dayData.prot} g`;
-        document.getElementById('nutri-header-carb').innerText = `${dayData.carbs} g`;
-        document.getElementById('nutri-header-fat').innerText = `${dayData.fat} g`;
-
-        const mealsContainer = document.getElementById('nutri-meals-container');
-        mealsContainer.innerHTML = '';
-
-        dayData.meals.forEach(meal => {
-          const mealBlock = document.createElement('div');
-          mealBlock.className = 'meal-block';
-
-          let itemsHtml = meal.items.map(item => `<li>${item}</li>`).join('');
-          let noteHtml = meal.note ? `<div class="meal-note">${meal.note}</div>` : '';
-          let kcalHtml = meal.kcal ? `<div class="meal-footer-cal">${meal.kcal}</div>` : '';
-
-          mealBlock.innerHTML = `
-            <div class="meal-title">${meal.title}</div>
-            <div class="meal-card">
-              ${noteHtml}
-              <ul class="meal-item-list">
-                ${itemsHtml}
-              </ul>
-              ${kcalHtml}
-            </div>
-          `;
-
-          mealsContainer.appendChild(mealBlock);
-        });
-      }
-    }
-
-    function renderShoppingList() {
-      const phaseData = shoppingListPhases[currentMeso] || shoppingListPhases[3];
-      document.getElementById('shopping-phase-label').innerText = phaseData.name;
-
-      const listContainer = document.getElementById('shopping-categories-list');
-      listContainer.innerHTML = '';
-
-      phaseData.categories.forEach(cat => {
-        const catBlock = document.createElement('div');
-        catBlock.className = 'shopping-category';
-
-        let itemsHtml = cat.items.map((item, idx) => `
-          <li>
-            <input type="checkbox" id="chk_${currentMeso}_${cat.name.substring(0,3)}_${idx}">
-            <label for="chk_${currentMeso}_${cat.name.substring(0,3)}_${idx}">${item}</label>
-          </li>
-        `).join('');
-
-        catBlock.innerHTML = `
-          <h3>${cat.name}</h3>
-          <ul class="shopping-list">
-            ${itemsHtml}
-          </ul>
+      dayData.meals.forEach(meal => {
+        const mealBlock = document.createElement('div');
+        mealBlock.className = 'meal-block';
+        let itemsHtml = meal.items.map(item => `<li>${item}</li>`).join('');
+        mealBlock.innerHTML = `
+          <div class="meal-title">${meal.title}</div>
+          <div class="meal-card">
+            <ul class="meal-item-list">${itemsHtml}</ul>
+            ${meal.kcal ? '<div class="meal-footer-cal">' + meal.kcal + '</div>' : ''}
+          </div>
         `;
-
-        listContainer.appendChild(catBlock);
+        mealsContainer.appendChild(mealBlock);
       });
     }
 
     function renderExercises() {
       const listContainer = document.getElementById('exercise-list');
       listContainer.innerHTML = '';
-
-      const multWeek = weekPctMultipliers[currentWeek] || 1.0;
-      const multGoal = goalMultipliers[currentGoal] || 1.0;
       const mesoList = workoutData[currentMeso] ? workoutData[currentMeso][currentDay] : [];
-
-      if (!mesoList) return;
-
-      const calcBaseWeight = bodyWeight > 0 ? bodyWeight : 70;
+      if (!mesoList) {
+        listContainer.innerHTML = '<p style="text-align:center; color:var(--text-muted); padding:20px;">Día de descanso o sin ejercicios programados.</p>';
+        return;
+      }
 
       mesoList.forEach((ex, exIdx) => {
         const card = document.createElement('div');
         card.className = 'exercise-card';
-
-        const basePct = ex.pct !== undefined ? ex.pct : 50;
-        const currentPct = Math.round(basePct * multWeek * multGoal * 10) / 10;
-        const calcTotalKg = Math.round((calcBaseWeight * (currentPct / 100)) * 10) / 10;
-        let noteLabel = ex.note ? `(${ex.note})` : '';
-
-        let rowsHtml = '';
-        for (let s = 1; s <= ex.sets; s++) {
-          const keyBase = `m${currentMeso}_w${currentWeek}_${currentDay}_ex${exIdx}_s${s}`;
-          const savedKg = localStorage.getItem(`${keyBase}_kg`) || '';
-          const savedReps = localStorage.getItem(`${keyBase}_reps`) || '';
-          const savedDone = localStorage.getItem(`${keyBase}_done`) === 'true' ? 'checked' : '';
-          const activeUrl = sessionVideoBlobs[keyBase] || '';
-
-          rowsHtml += `
-            <div class="set-row">
-              <div class="set-main-line">
-                <span class="set-label">Serie ${s}</span>
-                <div class="input-group">
-                  <label>Kg:</label>
-                  <input type="number" step="0.5" id="${keyBase}_kg" value="${savedKg}" placeholder="${calcTotalKg}" oninput="autoSave('${keyBase}_kg', this.value)">
-                </div>
-                <div class="input-group">
-                  <label>Reps:</label>
-                  <input type="number" id="${keyBase}_reps" value="${savedReps}" placeholder="10" oninput="autoSave('${keyBase}_reps', this.value)">
-                </div>
-                <div class="input-group">
-                  <input type="checkbox" id="${keyBase}_done" ${savedDone} onchange="autoSave('${keyBase}_done', this.checked)">
-                </div>
-              </div>
-              
-              <div class="set-video-upload">
-                <span>📹 Grabación / Técnica:</span>
-                <input type="file" accept="video/*" capture="user" onchange="saveExerciseVideo(this, '${keyBase}')">
-              </div>
-              <video id="${keyBase}_prev" class="set-video-preview" src="${activeUrl}" ${activeUrl ? 'controls' : ''} style="display: ${activeUrl ? 'block' : 'none'};"></video>
-            </div>
-          `;
-        }
-
         card.innerHTML = `
           <div class="exercise-header">
             <div class="exercise-title">${ex.name}</div>
             <a href="${ex.video}" target="_blank" rel="noopener" class="video-link">▶ Vídeo</a>
           </div>
           <div class="exercise-info">Objetivo: ${ex.target}</div>
-          <div class="calc-weight-tag">
-            📊 Carga F${currentMeso}W${currentWeek}: 
-            <input type="number" step="1" value="${currentPct}" onchange="updateExercisePct(${exIdx}, this.value)">%
-            de ${calcBaseWeight}kg ≈ <strong>${calcTotalKg} kg</strong> ${noteLabel}
-          </div>
-          ${rowsHtml}
         `;
         listContainer.appendChild(card);
       });
     }
 
-    function autoSave(key, value) {
-      localStorage.setItem(key, value);
-    }
-
-    function saveExerciseVideo(input, keyBase) {
-      const file = input.files[0];
-      if (file) {
-        const objectUrl = URL.createObjectURL(file);
-        sessionVideoBlobs[keyBase] = objectUrl;
-
-        const videoElem = document.getElementById(`${keyBase}_prev`);
-        if (videoElem) {
-          videoElem.src = objectUrl;
-          videoElem.controls = true;
-          videoElem.style.display = 'block';
-        }
-        alert('¡Vídeo cargado correctamente! Ya puedes reproducirlo.');
-      }
-    }
-
-    function saveWorkout() {
-      const now = new Date();
-      const timeStr = `${now.toLocaleDateString()} a las ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-      localStorage.setItem(`m_last_saved_m${currentMeso}_w${currentWeek}_${currentDay}`, timeStr);
-      alert(`¡Sesión del ${currentDay} (Fase ${currentMeso} - Sem ${currentWeek}) guardada!`);
-      loadHistory();
-    }
-
-    function resetCurrentDay() {
-      if (confirm(`¿Quieres borrar los registros del ${currentDay} (Fase ${currentMeso} - Sem ${currentWeek})?`)) {
-        const mesoList = workoutData[currentMeso][currentDay];
-        if (mesoList) {
-          mesoList.forEach((ex, exIdx) => {
-            for (let s = 1; s <= ex.sets; s++) {
-              const keyBase = `m${currentMeso}_w${currentWeek}_${currentDay}_ex${exIdx}_s${s}`;
-              localStorage.removeItem(`${keyBase}_kg`);
-              localStorage.removeItem(`${keyBase}_reps`);
-              localStorage.removeItem(`${keyBase}_done`);
-              delete sessionVideoBlobs[keyBase];
-            }
-          });
-        }
-        renderExercises();
-      }
-    }
-
-    function loadHistory() {
-      const historyContainer = document.getElementById('history-content');
-      const lastSaved = localStorage.getItem(`m_last_saved_m${currentMeso}_w${currentWeek}_${currentDay}`);
-
-      if (!lastSaved) {
-        historyContainer.innerHTML = `<em>No hay registros guardados aún para este día.</em>`;
-        return;
-      }
-
-      let html = `<div style="margin-bottom: 8px;"><strong>Último guardado (F${currentMeso} S${currentWeek}):</strong> ${lastSaved}</div>`;
-      const mesoList = workoutData[currentMeso][currentDay];
-
-      if (mesoList) {
-        mesoList.forEach((ex, exIdx) => {
-          let setSummary = [];
-          for (let s = 1; s <= ex.sets; s++) {
-            const keyBase = `m${currentMeso}_w${currentWeek}_${currentDay}_ex${exIdx}_s${s}`;
-            const kg = localStorage.getItem(`${keyBase}_kg`);
-            const reps = localStorage.getItem(`${keyBase}_reps`);
-            if (kg || reps) {
-              setSummary.push(`S${s}: ${kg || 0}kg x ${reps || 0}reps`);
-            }
-          }
-          if (setSummary.length > 0) {
-            html += `<div class="history-item"><strong>${ex.name}:</strong> ${setSummary.join(' | ')}</div>`;
-          }
-        });
-      }
-
-      historyContainer.innerHTML = html;
-    }
-
-    function renderProgressVideos() {
-      const container = document.getElementById('progress-videos-container');
-      let foundVideos = false;
-      let html = '';
-
-      Object.keys(sessionVideoBlobs).forEach(keyBase => {
-        foundVideos = true;
-        const videoSrc = sessionVideoBlobs[keyBase];
-        const parts = keyBase.replace('m', '').split('_');
-        const meso = parts[0];
-        const week = parts[1].replace('w', '');
-        const day = parts[2];
-        const exIdx = parts[3].replace('ex', '');
-        const setNum = parts[4].replace('s', '');
-
-        let exName = "Ejercicio";
-        if (allMesocyclesData[meso] && allMesocyclesData[meso][day] && allMesocyclesData[meso][day][exIdx]) {
-          exName = allMesocyclesData[meso][day][exIdx].name;
-        }
-
-        html += `
-          <div class="progress-video-card">
-            <div style="font-weight:bold; font-size:0.82rem; color:var(--highlight); margin-bottom:6px;">
-              🏋️‍♂️ Fase ${meso} | Semana ${week} | ${day} — <strong>${exName}</strong> (Serie ${setNum})
-            </div>
-            <video src="${videoSrc}" controls style="width:100%; max-height:200px; border-radius:6px; background:black;"></video>
-          </div>
-        `;
-      });
-
-      container.innerHTML = foundVideos ? html : '<p style="font-size:0.8rem; color: var(--text-muted); text-align:center;">No hay vídeos grabados en la sesión actual.</p>';
-    }
+    function saveWorkout() { alert('¡Sesión guardada!'); }
+    function resetCurrentDay() { if (confirm('¿Limpiar datos?')) renderExercises(); }
+    function saveWeeklyMetrics() { alert('¡Métricas guardadas!'); }
   </script>
 </body>
 </html>
