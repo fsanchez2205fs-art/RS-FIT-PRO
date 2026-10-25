@@ -31,10 +31,8 @@
       --week-active: #f59e0b;
       --nutrition-accent: #10b981;
       
-      /* Colores Estilo UI Nutrición y Métricas */
       --nutri-card-bg: #ffffff;
       --nutri-card-text: #1f2937;
-      --nutri-subtext: #4b5563;
       --prot-color: #10b981;
       --carb-color: #3b82f6;
       --fat-color: #f59e0b;
@@ -102,7 +100,6 @@
       cursor: pointer;
     }
 
-    /* BARRA DE PESTAÑAS PRINCIPALES */
     .day-selector {
       display: flex;
       justify-content: space-between;
@@ -131,7 +128,6 @@
 
     .container { padding: 0 10px; max-width: 600px; margin: 0 auto; }
 
-    /* ESTILO TIPO APP "PANEL DE HOY" */
     .home-hero {
       text-align: center;
       padding: 15px 10px;
@@ -159,7 +155,7 @@
       color: white;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 5px;
+      margin-bottom: 4px;
     }
     .home-date-badge {
       font-size: 0.82rem;
@@ -189,7 +185,6 @@
       font-weight: 600;
     }
 
-    /* TARJETAS DEL PANEL DE HOY */
     .dashboard-card {
       background-color: var(--bg-card);
       border-radius: 12px;
@@ -252,7 +247,6 @@
       font-weight: bold;
     }
 
-    /* ESTILOS ACTIVIDAD EXTRA */
     .extra-activity-card {
       background-color: var(--bg-card);
       border-radius: 12px;
@@ -369,7 +363,6 @@
     .history-log h3 { font-size: 0.9rem; margin-bottom: 10px; color: var(--accent); }
     .history-item { font-size: 0.78rem; border-bottom: 1px solid var(--border-color); padding: 5px 0; color: var(--text-muted); }
 
-    /* Estilos Pestaña Nutrición */
     .nutri-top-bar {
       display: flex;
       justify-content: space-between;
@@ -473,7 +466,6 @@
 
     .weekly-print-container { display: none; }
 
-    /* ESTILOS PARA IMPRESIÓN Y PDF SEMANAL */
     @media print {
       body * { visibility: hidden; }
       #nutrition-view, #nutrition-view * { visibility: visible; }
@@ -559,8 +551,8 @@
           <img src="./icon-192x192.png" alt="Logo RS FIT PRO">
         </div>
         <div class="home-greeting" id="home-greeting-text">Buenas tardes,</div>
-        <div class="home-username" id="home-username-text">FRANCISCO</div>
-        <div class="home-date-badge" id="home-current-date-str">Domingo, 25 de Octubre de 2026</div>
+        <div class="home-username" id="home-username-text">FRANCISCO SÁNCHEZ</div>
+        <div class="home-date-badge" id="home-current-date-str"></div>
       </div>
 
       <div class="plan-hoy-header">
@@ -723,7 +715,6 @@
         <div id="nutri-meals-container"></div>
       </div>
 
-      <!-- CONTENEDOR OCULTO PARA IMPRIMIR LA SEMANA COMPLETA -->
       <div id="weekly-print-container" class="weekly-print-container"></div>
     </div>
 
@@ -940,16 +931,19 @@
         MARTES: [
           { name: "Sentadilla Trasera con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" },
           { name: "Peso Muerto Rumano", target: "3 series | 10-12 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=peso+muerto" },
-          { name: "Zancada Frontal", target: "3 series | 10-12 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=zancada" }
+          { name: "Zancada Frontal", target: "3 series | 10-12 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=zancada" },
+          { name: "Curl de Isquios", target: "3 series | 10-12 reps", sets: 3, pct: 35, video: "https://www.youtube.com/results?search_query=curl+isquios" }
         ],
         JUEVES: [
           { name: "Remo Unilateral", target: "3 series | 10-12 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=remo+unilateral" },
           { name: "Press Banca Plano", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=press+banca" },
-          { name: "Pájaro con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 15, video: "https://www.youtube.com/results?search_query=pajaro" }
+          { name: "Pájaro con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 15, video: "https://www.youtube.com/results?search_query=pajaro" },
+          { name: "Curl Scott", target: "3 series | 10-12 reps", sets: 3, pct: 20, video: "https://www.youtube.com/results?search_query=curl+scott" }
         ],
         VIERNES: [
           { name: "Sentadilla Trasera", target: "3 series | 10-12 reps", sets: 3, pct: 45, video: "https://www.youtube.com/results?search_query=sentadilla" },
           { name: "Peso Muerto Rígido", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=peso+muerto" },
+          { name: "Zancadas", target: "3 series | 10-12 reps", sets: 3, pct: 35, video: "https://www.youtube.com/results?search_query=zancadas" },
           { name: "Crunches Abdominales", target: "3 series | 12-15 reps", sets: 3, pct: 10, video: "https://www.youtube.com/results?search_query=crunches" }
         ]
       },
@@ -962,7 +956,7 @@
         ],
         MARTES: [
           { name: "Sentadilla Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" },
-          { name: "Zancadas con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 35, video: "https://www.youtube.com/results?search_query=zancada" },
+          { name: "Zancadas con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 35, video: "https://www.youtube.com/results?search_query=zancadas" },
           { name: "Peso Muerto Rígido", target: "3 series | 10-12 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=peso+muerto" }
         ],
         JUEVES: [
@@ -1037,8 +1031,9 @@
     document.getElementById('current-week-select').value = currentWeek;
 
     function initHomeDashboard() {
-      const name = localStorage.getItem('m3_prof_name') || 'FRANCISCO';
-      document.getElementById('home-username-text').innerText = name;
+      const savedName = localStorage.getItem('m3_prof_name');
+      const displayName = (savedName && savedName.trim() !== '') ? savedName : 'FRANCISCO SÁNCHEZ';
+      document.getElementById('home-username-text').innerText = displayName;
 
       const hour = new Date().getHours();
       let greeting = "Buenas tardes,";
@@ -1114,7 +1109,7 @@
     }
 
     function loadProfileData() {
-      document.getElementById('prof-name').value = localStorage.getItem('m3_prof_name') || '';
+      document.getElementById('prof-name').value = localStorage.getItem('m3_prof_name') || 'FRANCISCO SÁNCHEZ';
       document.getElementById('prof-height').value = localStorage.getItem('m3_prof_height') || '';
       document.getElementById('prof-weight').value = localStorage.getItem('m3_user_weight') || '';
     }
