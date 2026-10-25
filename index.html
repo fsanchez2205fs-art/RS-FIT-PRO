@@ -159,8 +159,16 @@
       color: white;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    .home-date-badge {
+      font-size: 0.82rem;
+      color: var(--week-active);
+      font-weight: bold;
+      text-transform: capitalize;
       margin-bottom: 15px;
     }
+
     .plan-hoy-header {
       display: flex;
       justify-content: space-between;
@@ -456,14 +464,16 @@
       border-radius: 12px;
       padding: 16px;
       box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+      margin-bottom: 12px;
     }
 
-    .meal-item-list { list-style: none; margin-bottom: 15px; }
-    .meal-item-list li { font-size: 0.88rem; color: var(--nutri-card-text); padding: 5px 0; line-height: 1.4; }
-    .meal-note { font-size: 0.8rem; color: #4b5563; font-style: italic; margin-bottom: 8px; }
-    .meal-footer-cal { font-size: 0.88rem; color: #4b5563; font-weight: 600; margin-top: 10px; }
+    .meal-item-list { list-style: none; margin-bottom: 10px; }
+    .meal-item-list li { font-size: 0.88rem; color: var(--nutri-card-text); padding: 4px 0; line-height: 1.4; }
+    .meal-footer-cal { font-size: 0.88rem; color: #4b5563; font-weight: 600; }
 
-    /* ESTILOS PARA IMPRESIÓN Y PDF */
+    .weekly-print-container { display: none; }
+
+    /* ESTILOS PARA IMPRESIÓN Y PDF SEMANAL */
     @media print {
       body * { visibility: hidden; }
       #nutrition-view, #nutrition-view * { visibility: visible; }
@@ -476,9 +486,10 @@
         color: black !important;
         padding: 10px;
       }
-      header, .day-selector, .btn-print-pdf, .nutri-top-bar { display: none !important; }
-      .meal-card, .macro-header-card { background: white !important; color: black !important; border: 1px solid #ccc !important; box-shadow: none !important; }
-      .meal-title { color: #111 !important; }
+      header, .day-selector, .btn-print-pdf, .nutri-top-bar, .macro-header-card, #daily-menu-container { display: none !important; }
+      .weekly-print-container { display: block !important; }
+      .meal-card { background: white !important; color: black !important; border: 1px solid #ccc !important; box-shadow: none !important; page-break-inside: avoid; }
+      .meal-title { color: #111 !important; font-size: 1.1rem !important; }
       .meal-item-list li { color: #333 !important; }
     }
   </style>
@@ -549,6 +560,7 @@
         </div>
         <div class="home-greeting" id="home-greeting-text">Buenas tardes,</div>
         <div class="home-username" id="home-username-text">FRANCISCO</div>
+        <div class="home-date-badge" id="home-current-date-str">Domingo, 25 de Octubre de 2026</div>
       </div>
 
       <div class="plan-hoy-header">
@@ -693,7 +705,7 @@
           <button class="nutri-day-btn" id="nday-SABADO" onclick="switchNutriDay('SABADO')">Sábado</button>
           <button class="nutri-day-btn" id="nday-DOMINGO" onclick="switchNutriDay('DOMINGO')">Domingo</button>
         </div>
-        <button type="button" class="btn-print-pdf" onclick="window.print()">🖨️ Imprimir / PDF</button>
+        <button type="button" class="btn-print-pdf" onclick="window.print()">🖨️ Imprimir Menú Semanal PDF</button>
       </div>
 
       <div id="daily-menu-container">
@@ -710,6 +722,9 @@
         </div>
         <div id="nutri-meals-container"></div>
       </div>
+
+      <!-- CONTENEDOR OCULTO PARA IMPRIMIR LA SEMANA COMPLETA -->
+      <div id="weekly-print-container" class="weekly-print-container"></div>
     </div>
 
     <!-- VISTA DE PERFIL -->
@@ -916,32 +931,93 @@
       1: {
         LUNES: [
           { name: "Flexiones de Pecho", target: "3 series | 10-12 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=flexiones+pecho" },
-          { name: "Remo Pendlay con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=remo+pendlay" }
+          { name: "Remo Pendlay con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=remo+pendlay" },
+          { name: "Press Militar Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 35, video: "https://www.youtube.com/results?search_query=press+militar" },
+          { name: "Curl de Bíceps", target: "3 series | 10-12 reps", sets: 3, pct: 20, video: "https://www.youtube.com/results?search_query=curl+biceps" },
+          { name: "Tríceps OH", target: "3 series | 10-12 reps", sets: 3, pct: 25, video: "https://www.youtube.com/results?search_query=triceps+oh" },
+          { name: "Plancha Abdominal", target: "3 series | 30-45 seg", sets: 3, pct: 10, video: "https://www.youtube.com/results?search_query=plancha+abdominal" }
         ],
-        MARTES: [{ name: "Sentadilla Trasera", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" }],
-        JUEVES: [{ name: "Press Banca Plano", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=press+banca" }],
-        VIERNES: [{ name: "Peso Muerto Rígido", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=peso+muerto" }]
+        MARTES: [
+          { name: "Sentadilla Trasera con Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" },
+          { name: "Peso Muerto Rumano", target: "3 series | 10-12 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=peso+muerto" },
+          { name: "Zancada Frontal", target: "3 series | 10-12 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=zancada" }
+        ],
+        JUEVES: [
+          { name: "Remo Unilateral", target: "3 series | 10-12 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=remo+unilateral" },
+          { name: "Press Banca Plano", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=press+banca" },
+          { name: "Pájaro con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 15, video: "https://www.youtube.com/results?search_query=pajaro" }
+        ],
+        VIERNES: [
+          { name: "Sentadilla Trasera", target: "3 series | 10-12 reps", sets: 3, pct: 45, video: "https://www.youtube.com/results?search_query=sentadilla" },
+          { name: "Peso Muerto Rígido", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=peso+muerto" },
+          { name: "Crunches Abdominales", target: "3 series | 12-15 reps", sets: 3, pct: 10, video: "https://www.youtube.com/results?search_query=crunches" }
+        ]
       },
       2: {
-        LUNES: [{ name: "Press Militar", target: "3 series | 10-12 reps", sets: 3, pct: 40, video: "https://www.youtube.com/results?search_query=press+militar" }],
-        MARTES: [{ name: "Sentadilla Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" }],
-        JUEVES: [{ name: "Flexión TRX", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=flexion+trx" }],
-        VIERNES: [{ name: "Peso Muerto Rumano", target: "3 series | 10-12 reps", sets: 3, pct: 65, video: "https://www.youtube.com/results?search_query=peso+muerto" }]
+        LUNES: [
+          { name: "Press Militar Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 40, video: "https://www.youtube.com/results?search_query=press+militar" },
+          { name: "Remo en TRX", target: "3 series | 10-12 reps", sets: 3, pct: 65, video: "https://www.youtube.com/results?search_query=remo+trx" },
+          { name: "Tríceps OH", target: "3 series | 10-12 reps", sets: 3, pct: 25, video: "https://www.youtube.com/results?search_query=triceps" },
+          { name: "Bíceps TRX", target: "3 series | 10-12 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=biceps" }
+        ],
+        MARTES: [
+          { name: "Sentadilla Barra", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" },
+          { name: "Zancadas con Mancuernas", target: "3 series | 10-12 reps", sets: 3, pct: 35, video: "https://www.youtube.com/results?search_query=zancada" },
+          { name: "Peso Muerto Rígido", target: "3 series | 10-12 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=peso+muerto" }
+        ],
+        JUEVES: [
+          { name: "Flexión TRX", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=flexion+trx" },
+          { name: "Remo Pendlay", target: "3 series | 10-12 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=remo+pendlay" },
+          { name: "Fondo Tríceps", target: "3 series | 10-12 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=fondo+triceps" }
+        ],
+        VIERNES: [
+          { name: "Sentadilla", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=sentadilla" },
+          { name: "Peso Muerto Rumano", target: "3 series | 10-12 reps", sets: 3, pct: 65, video: "https://www.youtube.com/results?search_query=peso+muerto" },
+          { name: "Plancha Abdominal", target: "3 series | 30 seg", sets: 3, pct: 10, video: "https://www.youtube.com/results?search_query=plancha" }
+        ]
       },
       3: {
         LUNES: [
           { name: "Press Banca Plano con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=press+banca" },
-          { name: "Remo Pendlay con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=remo+pendlay" }
+          { name: "Remo Pendlay con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=remo+pendlay" },
+          { name: "Press Militar Barra", target: "3 series | 8-10 reps", sets: 3, pct: 40, video: "https://www.youtube.com/results?search_query=press+militar" },
+          { name: "Curl de Bíceps", target: "3 series | 10-12 reps", sets: 3, pct: 20, video: "https://www.youtube.com/results?search_query=curl+biceps" },
+          { name: "Extensiones Tríceps TRX", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=extensiones+triceps" }
         ],
-        MARTES: [{ name: "Sentadilla Trasera con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=sentadilla" }],
-        JUEVES: [{ name: "Press Inclinado", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=press+inclinado" }],
-        VIERNES: [{ name: "Hip Thrust con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 70, video: "https://www.youtube.com/results?search_query=hip+thrust" }]
+        MARTES: [
+          { name: "Sentadilla Trasera con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 55, video: "https://www.youtube.com/results?search_query=sentadilla" },
+          { name: "Peso Muerto Rumano", target: "3 series | 8-10 reps", sets: 3, pct: 65, video: "https://www.youtube.com/results?search_query=peso+muerto" },
+          { name: "Zancada Búlgara", target: "3 series | 10 reps/pierna", sets: 3, pct: 35, video: "https://www.youtube.com/results?search_query=zancada+bulgara" }
+        ],
+        JUEVES: [
+          { name: "Press Inclinado", target: "3 series | 10-12 reps", sets: 3, pct: 50, video: "https://www.youtube.com/results?search_query=press+inclinado" },
+          { name: "Remo Unilateral", target: "3 series | 10-12 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=remo+unilateral" },
+          { name: "Elevaciones Laterales", target: "3 series | 12 reps", sets: 3, pct: 18, video: "https://www.youtube.com/results?search_query=elevaciones+laterales" }
+        ],
+        VIERNES: [
+          { name: "Hip Thrust con Barra", target: "3 series | 8-10 reps", sets: 3, pct: 70, video: "https://www.youtube.com/results?search_query=hip+thrust" },
+          { name: "Peso Muerto Rígido", target: "3 series | 8-10 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=peso+muerto" },
+          { name: "Zancadas Caminando", target: "3 series | 10 reps", sets: 3, pct: 30, video: "https://www.youtube.com/results?search_query=zancadas" }
+        ]
       },
       4: {
-        LUNES: [{ name: "Press Banca Plano", target: "3 series | 6-8 reps", sets: 3, pct: 68, video: "https://www.youtube.com/results?search_query=press+banca" }],
-        MARTES: [{ name: "Sentadilla Trasera", target: "3 series | 6-8 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=sentadilla" }],
-        JUEVES: [{ name: "Press Inclinado", target: "3 series | 6-8 reps", sets: 3, pct: 58, video: "https://www.youtube.com/results?search_query=press+inclinado" }],
-        VIERNES: [{ name: "Hip Thrust Pesado", target: "3 series | 6-8 reps", sets: 3, pct: 75, video: "https://www.youtube.com/results?search_query=hip+thrust" }]
+        LUNES: [
+          { name: "Press Banca Plano", target: "3 series | 6-8 reps", sets: 3, pct: 68, video: "https://www.youtube.com/results?search_query=press+banca" },
+          { name: "Remo Pendlay", target: "3 series | 6-8 reps", sets: 3, pct: 65, video: "https://www.youtube.com/results?search_query=remo+pendlay" },
+          { name: "Press Militar", target: "3 series | 6-8 reps", sets: 3, pct: 45, video: "https://www.youtube.com/results?search_query=press+militar" }
+        ],
+        MARTES: [
+          { name: "Sentadilla Trasera", target: "3 series | 6-8 reps", sets: 3, pct: 60, video: "https://www.youtube.com/results?search_query=sentadilla" },
+          { name: "Peso Muerto Rumano", target: "3 series | 6-8 reps", sets: 3, pct: 70, video: "https://www.youtube.com/results?search_query=peso+muerto" }
+        ],
+        JUEVES: [
+          { name: "Press Inclinado", target: "3 series | 6-8 reps", sets: 3, pct: 58, video: "https://www.youtube.com/results?search_query=press+inclinado" },
+          { name: "Remo Unilateral Pesado", target: "3 series | 6-8 reps", sets: 3, pct: 38, video: "https://www.youtube.com/results?search_query=remo+unilateral" }
+        ],
+        VIERNES: [
+          { name: "Hip Thrust Pesado", target: "3 series | 6-8 reps", sets: 3, pct: 75, video: "https://www.youtube.com/results?search_query=hip+thrust" },
+          { name: "Peso Muerto Rígido", target: "3 series | 6-8 reps", sets: 3, pct: 65, video: "https://www.youtube.com/results?search_query=peso+muerto" }
+        ]
       }
     };
 
@@ -970,11 +1046,16 @@
       else if (hour >= 21) greeting = "Buenas noches,";
       document.getElementById('home-greeting-text').innerText = greeting;
 
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const todayStr = new Date().toLocaleDateString('es-ES', options);
+      document.getElementById('home-current-date-str').innerText = todayStr;
+
       const todayName = getCurrentTrainingDay();
       document.getElementById('dash-workout-title').innerText = `Entrenamiento: ${todayName}`;
       document.getElementById('plan-hoy-day-label').innerText = `Ver ${todayName.toLowerCase()} ➔`;
 
       loadExtraActivitiesList();
+      prepareWeeklyPrintContent();
     }
 
     function getCurrentTrainingDay() {
@@ -1051,6 +1132,7 @@
       localStorage.setItem('m3_active_meso', currentMeso);
       renderExercises();
       if (currentDay === 'NUTRICION') renderNutrition();
+      prepareWeeklyPrintContent();
     }
 
     function switchWeek(weekNum) {
@@ -1129,6 +1211,35 @@
         `;
         mealsContainer.appendChild(mealBlock);
       });
+    }
+
+    function prepareWeeklyPrintContent() {
+      const container = document.getElementById('weekly-print-container');
+      const activePhase = nutritionPhasesData[currentMeso] || nutritionPhasesData[3];
+      const days = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO'];
+      
+      let html = `<h2 style="text-align:center; margin-bottom:15px; color:#111;">RS FIT PRO — Menú Nutricional Completo (Fase ${currentMeso})</h2>`;
+
+      days.forEach(day => {
+        const dayData = activePhase[day];
+        if (!dayData) return;
+        html += `<div style="margin-bottom:20px; page-break-inside: avoid;">`;
+        html += `<h3 style="background:#2563eb; color:white; padding:6px 10px; border-radius:4px; text-transform:uppercase; margin-bottom:8px;">${day} — (${dayData.kcal} kcal | P: ${dayData.prot}g | C: ${dayData.carbs}g | G: ${dayData.fat}g)</h3>`;
+        
+        dayData.meals.forEach(meal => {
+          let itemsHtml = meal.items.map(item => `<li>${item}</li>`).join('');
+          html += `
+            <div class="meal-card" style="margin-bottom:8px; padding:10px;">
+              <strong>${meal.title}</strong>:
+              <ul class="meal-item-list" style="padding-left:15px; margin-top:4px;">${itemsHtml}</ul>
+              ${meal.kcal ? '<span style="font-size:0.8rem; color:#555;">' + meal.kcal + '</span>' : ''}
+            </div>
+          `;
+        });
+        html += `</div>`;
+      });
+
+      container.innerHTML = html;
     }
 
     function renderExercises() {
